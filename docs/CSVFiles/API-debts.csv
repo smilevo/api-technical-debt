@@ -1,0 +1,2313 @@
+ the calls RequestCycle.getClientInfo -> Session.getClientInfo ->
+"""
+ * Session class for library example. Holds User object and authenticates users.
+ * 
+ * @author Jonathan Locke
+ """
+"""
+ * Example displaying partial page rendering using the counting link example and
+ * prototype.js. Prototype.js is a javascript library that provides several
+ * handy JavaScript functions, amongst others an Ajax.Updater function, which
+ * updates the HTML document with the response of the Ajax call.
+ * 
+ * @author ivaynberg
+ """
+"""
+			 * Alter the javascript 'onclick' event to emit the Ajax call and
+			 * update the counter label.
+			 """
+""" fallback was used, so there is no need to do any ajax-related"""
+""" The textarea for entering the comments, is updated in the ajax call. """
+ add the ajax behavior which will keep updating the component every 5
+ updated through an AJAX call.
+ INJECT NEWLY CREATED COMPONENTS WITH THEIR SPRING DEPENDENCIES
+"""
+ * a dao implementation with an auto-generated embedded database. in a true
+ * application this dao would interface with a real database, but because we
+ * want to keep dependencies to a minimum we generate our own database here.
+ * 
+ * @author Igor Vaynberg (ivaynberg)
+ * 
+ """
+"""
+	 * test the cache, make sure the same proxy is returned for the same
+	 * dependency it represents
+	 * 
+	 * @throws Exception
+	 """
+"""
+ * Spring application context mock that does all the initialization required to
+ * setup an {@link AnnotSpringInjector} that will use this mock context as its
+ * source of beans.
+ * <p>
+ * Example
+ * 
+ * <pre>
+ *  AnnotApplicationContextMock appctx = new AnnotApplicationContextMock();
+ *  appctx.putBean(&quot;contactDao&quot;, dao);
+ *  
+ *  WicketTester app = new WicketTester();
+ *  
+ *  Page deletePage=new DeleteContactPage(new DummyHomePage(), 10));
+ * </pre>
+ * 
+ * DeleteContactPage will have its dependencies initialized by the
+ * {@link AnnotSpringInjector}
+ * 
+ * @author Igor Vaynberg (ivaynberg)
+ * 
+ """
+ TODO Remove methods after deprecation release is done
+"""
+ * Ajaxified version of the tabbed panel. Uses AjaxFallbackLink instead of
+ * regular wicket links so it can update itself inplace.
+ * 
+ * @author Igor Vaynberg (ivaynberg)
+ * 
+ """
+"""
+			 * Implement our own ajax event handling in order to update the
+			 * datatable itself, as the default implementation doesn't support
+			 * DataViews.
+			 * 
+			 * @see AjaxPagingNavigator#onAjaxEvent(AjaxRequestTarget)
+			 """
+"""
+ * Mock dependency that implements an interface
+ * 
+ * @author Igor Vaynberg (ivaynberg)
+ * 
+ """
+"""
+ * Mock dependency that does not implement an interface
+ * 
+ * @author Igor Vaynberg (ivaynberg)
+ * 
+ """
+"""
+ * Interface for mock dependency
+ * 
+ * @author Igor Vaynberg (ivaynberg)
+ * 
+ """
+"""
+	 * @return dependency1
+	 """
+"""
+	 * @return dependency2
+	 """
+"""
+	 * @return dependency4
+	 """
+"""
+	 * @return dependency3
+	 """
+"""
+	 * Checks that the timer javascript is in the document once and only once
+	 *
+	 * @param document
+	 *            the response from the Application
+	 * @param updateScript
+	 *            the timer script
+	 """
+"""
+	 * This method is deprecated, use the isEnabled(Component)
+	 * @return true
+	 * @deprecated use isEnabled(Component) now.
+	 """
+"""
+	 * Called right after a component's listener method (the provided method
+	 * argument) was called. This method may be used to clean up dependencies,
+	 * do logging, etc. NOTE: this method will also be called when
+	 * {@link WebPage#beforeCallComponent(Component, RequestListenerInterface)}
+	 * or the method invocation itself failed.
+	 * 
+	 * @param component
+	 *            the component that is to be called
+	 * @param listener
+	 *            the listener of that component that is to be called
+	 """
+"""
+	 * Called just before a component's listener method (the provided method
+	 * argument) is called. This method may be used to set up dependencies,
+	 * enforce authorization, etc. NOTE: if this method fails, the method will
+	 * not be excuted. Method
+	 * {@link WebPage#afterCallComponent(Component, RequestListenerInterface)}
+	 * will always be called.
+	 * 
+	 * @param component
+	 *            the component that is to be called
+	 * @param listener
+	 *            the listener of that component that is to be called
+	 """
+"""
+ * Initializer for components in wicket core library.
+ * 
+ * @author Jonathan Locke
+ """
+ Load properties files used by all libraries
+"""
+	 * @param properties
+	 *            Properties map with names of any library destroyers in it
+	 """
+"""
+	 * This method is still here for backwards compatibility with 1.1 source
+	 * code. The getXXXSettings() methods are now preferred. This method will be
+	 * removed post 1.2 version.
+	 * 
+	 * @return Application settings
+	 * 
+	 * @see Application#getApplicationSettings()
+	 * @see Application#getDebugSettings()
+	 * @see Application#getExceptionSettings()
+	 * @see Application#getMarkupSettings()
+	 * @see Application#getPageSettings()
+	 * @see Application#getRequestCycleSettings()
+	 * @see Application#getResourceSettings()
+	 * @see Application#getSecuritySettings()
+	 * @see Application#getSessionSettings()
+	 """
+"""
+	 * @param properties
+	 *            Properties map with names of any library initializers in it
+	 """
+"""
+ * Encryption and decryption implementations are accessed through this
+ * interface. It provide some simple means to encrypt and decrypt strings, like
+ * passwords etc.. It depends on the implementation itself which algorithms are
+ * used to en-/decrypt the data.
+ * <p>
+ * If you value the privacy of your websites users, then please consider using a
+ * one-way encryption algorithm instead of the Wicket provided ICrypt
+ * implementations. The intention of these encryption facilities is to keep
+ * passwords private when stored in cookies or in the session.The implementation
+ * of the encryption algorithm may change between releases. As such, this
+ * interface and its implementations are not intended and should not be used as
+ * an encryption facility for persistent values.
+ * <p>
+ * As of Wicket 1.2 the methods encrypt and decrypt are deprecated. Consider
+ * changing your persistent encryption strategy to be based on a one-way
+ * encryption such as a SHA1 hash, not depending on Wicket classes.
+ * 
+ * @author Juergen Donnerstag
+ """
+ this hack - accessing the serialization API through introspection - is
+""" way of working is of course fragile for internal API changes, but as we"""
+"""
+ * Implements a differencing engine that works on arrays of
+ * {@link Object Object}.
+ * 
+ * <p>
+ * Within this library, the word <i>text</i> means a unit of information
+ * subject to version control.
+ * 
+ * <p>
+ * Text is represented as <code>Object[]</code> because the diff engine is
+ * capable of handling more than plain ascci. In fact, arrays of any type that
+ * implements {@link java.lang.Object#hashCode hashCode()} and
+ * {@link java.lang.Object#equals equals()} correctly can be subject to
+ * differencing using this library.
+ * </p>
+ * 
+ * <p>
+ * This library provides a framework in which different differencing algorithms
+ * may be used. If no algorithm is specififed, a default algorithm is used.
+ * </p>
+ * 
+ * @version $Revision: 1.1 $ $Date: 2006/03/12 00:24:21 $
+ * @author <a href= mailto:juanco@suigeneris.org >Juanco Anez</a>
+ * @see Delta
+ * @see DiffAlgorithm
+ * 
+ * modifications:
+ * 
+ * 27 Apr 2003 bwm
+ * 
+ * Added some comments whilst trying to figure out the algorithm
+ * 
+ * 03 May 2003 bwm
+ * 
+ * Factored out the algorithm implementation into a separate difference
+ * algorithm class to allow pluggable algorithms.
+ """
+"""
+ * A version of Hashtable supporting concurrency for both retrievals and
+ * updates:
+ * 
+ * <dl>
+ * <dt> Retrievals
+ * 
+ * <dd> Retrievals may overlap updates. (This is the same policy as
+ * ConcurrentReaderHashMap.) Successful retrievals using get(key) and
+ * containsKey(key) usually run without locking. Unsuccessful retrievals (i.e.,
+ * when the key is not present) do involve brief synchronization (locking).
+ * Because retrieval operations can ordinarily overlap with update operations
+ * (i.e., put, remove, and their derivatives), retrievals can only be guaranteed
+ * to return the results of the most recently <em>completed</em> operations
+ * holding upon their onset. Retrieval operations may or may not return results
+ * reflecting in-progress writing operations. However, the retrieval operations
+ * do always return consistent results -- either those holding before any single
+ * modification or after it, but never a nonsense result. For aggregate
+ * operations such as putAll and clear, concurrent reads may reflect insertion
+ * or removal of only some entries.
+ * <p>
+ * 
+ * Iterators and Enumerations (i.e., those returned by keySet().iterator(),
+ * entrySet().iterator(), values().iterator(), keys(), and elements()) return
+ * elements reflecting the state of the hash table at some point at or since the
+ * creation of the iterator/enumeration. They will return at most one instance
+ * of each element (via next()/nextElement()), but might or might not reflect
+ * puts and removes that have been processed since they were created. They do
+ * <em>not</em> throw ConcurrentModificationException. However, these
+ * iterators are designed to be used by only one thread at a time. Passing an
+ * iterator across multiple threads may lead to unpredictable results if the
+ * table is being concurrently modified.
+ * <p>
+ * 
+ * 
+ * <dt> Updates
+ * 
+ * <dd> This class supports a hard-wired preset <em>concurrency
+ * level</em> of
+ * 32. This allows a maximum of 32 put and/or remove operations to proceed
+ * concurrently. This level is an upper bound on concurrency, not a guarantee,
+ * since it interacts with how well-strewn elements are across bins of the
+ * table. (The preset value in part reflects the fact that even on large
+ * multiprocessors, factors other than synchronization tend to be bottlenecks
+ * when more than 32 threads concurrently attempt updates.) Additionally,
+ * operations triggering internal resizing and clearing do not execute
+ * concurrently with any operation.
+ * <p>
+ * 
+ * There is <em>NOT</em> any support for locking the entire table to prevent
+ * updates. This makes it imposssible, for example, to add an element only if it
+ * is not already present, since another thread may be in the process of doing
+ * the same thing. If you need such capabilities, consider instead using the
+ * ConcurrentReaderHashMap class.
+ * 
+ * </dl>
+ * 
+ * Because of how concurrency control is split up, the size() and isEmpty()
+ * methods require accumulations across 32 control segments, and so might be
+ * slightly slower than you expect.
+ * <p>
+ * 
+ * This class may be used as a direct replacement for java.util.Hashtable in any
+ * application that does not rely on the ability to lock the entire table to
+ * prevent updates. As of this writing, it performs much faster than Hashtable
+ * in typical multi-threaded applications with multiple readers and writers.
+ * Like Hashtable but unlike java.util.HashMap, this class does NOT allow
+ * <tt>null</tt> to be used as a key or value.
+ * <p>
+ * 
+ * Implementation note: A slightly faster implementation of this class will be
+ * possible once planned Java Memory Model revisions are in place.
+ * 
+ * <p>[<a
+ * href= http://gee.cs.oswego.edu/dl/classes/EDU/oswego/cs/dl/util/concurrent/intro.html >
+ * Introduction to this package. </a>]
+ * 
+ """
+"""
+ * <p>
+ * High level API for processing file uploads.
+ * </p>
+ * 
+ * <p>
+ * This class handles multiple files per single HTML widget, sent using
+ * <code>multipart/mixed</code> encoding type, as specified by <a
+ * href= http://www.ietf.org/rfc/rfc1867.txt >RFC 1867</a>.
+ * 
+ * <p>
+ * How the data for individual parts is stored is determined by the factory used
+ * to create them; a given part may be in memory, on disk, or somewhere else.
+ * </p>
+ * 
+ * @author <a href= mailto:Rafal.Krzewski@e-point.pl >Rafal Krzewski</a>
+ * @author <a href= mailto:dlr@collab.net >Daniel Rall</a>
+ * @author <a href= mailto:jvanzyl@apache.org >Jason van Zyl</a>
+ * @author <a href= mailto:jmcnally@collab.net >John McNally</a>
+ * @author <a href= mailto:martinc@apache.org >Martin Cooper</a>
+ * @author Sean C. Sullivan
+ """
+"""
+ * <p>
+ * High level API for processing file uploads.
+ * </p>
+ * 
+ * <p>
+ * This class handles multiple files per single HTML widget, sent using
+ * <code>multipart/mixed</code> encoding type, as specified by <a
+ * href= http://www.ietf.org/rfc/rfc1867.txt >RFC 1867</a>. Use {@link
+ * #parseRequest(HttpServletRequest)} to acquire a list of {@link
+ * org.apache.wicket.util.upload.FileItem}s associated with a given HTML widget.
+ * </p>
+ * 
+ * <p>
+ * How the data for individual parts is stored is determined by the factory used
+ * to create them; a given part may be in memory, on disk, or somewhere else.
+ * </p>
+ * 
+ * @author <a href= mailto:Rafal.Krzewski@e-point.pl >Rafal Krzewski</a>
+ * @author <a href= mailto:dlr@collab.net >Daniel Rall</a>
+ * @author <a href= mailto:jvanzyl@apache.org >Jason van Zyl</a>
+ * @author <a href= mailto:jmcnally@collab.net >John McNally</a>
+ * @author <a href= mailto:martinc@apache.org >Martin Cooper</a>
+ * @author Sean C. Sullivan
+ """
+"""
+ * <p>
+ * High level API for processing file uploads.
+ * </p>
+ * 
+ * <p>
+ * This class handles multiple files per single HTML widget, sent using
+ * <code>multipart/mixed</code> encoding type, as specified by <a
+ * href= http://www.ietf.org/rfc/rfc1867.txt >RFC 1867</a>.
+ * </p>
+ * 
+ * <p>
+ * How the data for individual parts is stored is determined by the factory used
+ * to create them; a given part may be in memory, on disk, or somewhere else.
+ * </p>
+ * 
+ * @author <a href= mailto:Rafal.Krzewski@e-point.pl >Rafal Krzewski</a>
+ * @author <a href= mailto:dlr@collab.net >Daniel Rall</a>
+ * @author <a href= mailto:jvanzyl@apache.org >Jason van Zyl</a>
+ * @author <a href= mailto:jmcnally@collab.net >John McNally</a>
+ * @author <a href= mailto:martinc@apache.org >Martin Cooper</a>
+ * @author Sean C. Sullivan
+ """
+"""
+	 * NOT USED ANYMORE; it's here for helping people migrate from Wicket 1.2 to
+	 * Wicket 1.3
+	 * 
+	 * @param containerClass
+	 * @return nothing
+	 * @throws always
+	 *             throws an {@link IllegalStateException}
+	 """
+ TODO remove after release 1.3.0
+ TODO remove after deprecation release
+ TODO remove after the deprecation release
+ Legacy migration check.
+"""
+	 * DO NOT USE.
+	 * 
+	 * @param name
+	 * @param session
+	 * @return
+	 * @deprecated remove after deprecation release
+	 """
+"""
+	 * Deprecated method - should not be used.
+	 * 
+	 * @param name
+	 *            The name
+	 * @return The path
+	 * @deprecated Use ServletContext.getRealPath(String) instead.
+	 """
+"""
+	 * This method is now deprecated.
+	 *  
+	 * @param key
+	 * @param component
+	 * @param model
+	 * @param locale
+	 * @param style
+	 * @param defaultValue
+	 * @return String
+	 * @throws MissingResourceException
+	 * 
+	 * @Deprecated please use {@link #getString(String, Component, IModel, String)}
+	 """
+ partial updates with no fallback. 
+"""
+		 * partial updates that falls back to a regular link in case the client
+		 * does not support javascript.
+		 """
+"""
+	 * DEPRECATED/UNSUPPORTED
+	 * 
+	 * Gets the default variables for interpolation.
+	 * 
+	 * @return a map with the variables for interpolation
+	 * 
+	 * @deprecated use {@link #variablesMap(IValidatable)} instead
+	 * @throws UnsupportedOperationException
+	 * 
+	 * FIXME 2.0: remove asap
+	 """
+ initialize the javascript library
+"""
+	 * Imports the contents of the url of the model object.
+	 * 
+	 * @return the imported contents
+	 """
+"""
+	 * Imports from a relative url.
+	 * 
+	 * @param url
+	 *            the url to import
+	 * @return the imported url's contents
+	 """
+"""
+	 * Imports from an absolute url.
+	 * 
+	 * @param url
+	 *            the url to import
+	 * @return the imported url's contents
+	 """
+"""
+	 * Goes back a version from the current version
+	 * 
+	 * @return True if the page was successfully reverted to its previous
+	 *         version
+	 """
+ deprecation release.
+ TODO This method is for helping people upgrade. Remove after deprecation
+ TODO remove these methods after a deprecation release
+ deprecated methods
+"""
+	 * DEPRECATED/UNSUPPORTED
+	 * 
+	 * Gets the default variables for interpolation. These are:
+	 * <ul>
+	 * <li>${input}: the user's input</li>
+	 * <li>${name}: the name of the component</li>
+	 * <li>${label}: the label of the component - either comes from
+	 * FormComponent.labelModel or resource key [form-id].[form-component-id] in
+	 * that order</li>
+	 * </ul>
+	 * 
+	 * @param formComponent
+	 *            form component
+	 * @return a map with the variables for interpolation
+	 * 
+	 * @deprecated use {@link #variablesMap(IValidatable)} instead
+	 * @throws UnsupportedOperationException
+	 * 
+	 * 
+	 * FIXME 2.0: remove asap
+	 """
+"""
+	 * DEPRECATED/UNSUPPORTED
+	 * 
+	 * Gets the resource key for validator's error message from the
+	 * ApplicationSettings class.
+	 * 
+	 * @param formComponent
+	 *            form component that is being validated
+	 * 
+	 * @return the resource key based on the form component
+	 * 
+	 * @deprecated use {@link #resourceKey()} instead
+	 * @throws UnsupportedOperationException
+	 * 
+	 * 
+	 * FIXME 2.0: remove asap
+	 * 
+	 """
+"""
+	 * DEPRECATED/UNSUPPORTED
+	 * 
+	 * THIS METHOD IS NOT PART OF THE WICKET PUBLIC API. DO NOT IMPLEMENT IT.
+	 * <p>
+	 * Instead of subclassing IValidator, you should use one of the existing
+	 * validators, which cover a huge number of cases, or if none satisfies your
+	 * need, subclass CustomValidator.
+	 * <p>
+	 * Validates the given input. The input corresponds to the input from the
+	 * request for a component.
+	 * 
+	 * @param component
+	 *            Component to validate
+	 * 
+	 * @deprecated use {@link #variablesMap(IValidatable)} instead
+	 * @throws UnsupportedOperationException
+	 * 
+	 * 
+	 * FIXME 2.0: remove asap
+	 """
+"""
+	 * Construct. Contributes packaged dependencies.
+	 * 
+	 * @param id
+	 *            The component id
+	 """
+"""
+	 * Construct.
+	 * 
+	 * @param id
+	 *            The component id
+	 * @param contributeDependencies
+	 *            Whether to contribute the packaged dependencies. Pass false in
+	 *            case you want to include the dependencies manually in your own
+	 *            page, e.g. when you want to keep them in your web application
+	 *            dir. To contribute yourself (in case you want to pass false),
+	 *            your page header should look like:
+	 * 
+	 * <pre>
+	 * 	 &lt;script type=&quot;text/javascript&quot; src=&quot;yahoo.js&quot;&gt;&lt;/script&gt; 
+	 * 	 &lt;script type=&quot;text/javascript&quot; src=&quot;dom.js&quot;&gt;&lt;/script&gt; 
+	 * 	 &lt;script type=&quot;text/javascript&quot; src=&quot;event.js&quot;&gt;&lt;/script&gt; 
+	 * 	 &lt;script type=&quot;text/javascript&quot; src=&quot;calendar.js&quot;&gt;&lt;/script&gt; 
+	 * 	 &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;calendar.css&quot; /&gt; 
+	 * </pre>
+	 """
+"""
+ * Enables your application to do Spring dependency injection. To use, register
+ * the injector as a {@link wicket.application.IComponentInstantiationListener}
+ * like this:
+ * 
+ * <pre>
+ *       ... (in your application's constructor or init method)
+ *       add(new ComponentInjector());
+ *       ...
+ * </pre>
+ * 
+ * @see wicket.application.IComponentInstantiationListener
+ * @see wicket.Application#addComponentInstantiationListener(wicket.application.IComponentInstantiationListener)
+ * @author Eelco Hillenius
+ """
+"""
+	 * Gets the library session.
+	 * 
+	 * @return The library session
+	 """
+"""
+	 * THIS METHOD IS NOT PART OF THE WICKET PUBLIC API. DO NOT USE IT.
+	 * 
+	 * @param updateCluster
+	 *            The updateCluster to set.
+	 """
+"""
+ * Encryption and decryption implementations are accessed through this
+ * interface. It provide some simple means to encrypt and decrypt strings, like
+ * cookie values or URLs. It depends on the implementation itself which
+ * algorithms are used to en-/decrypt the data.
+ * <p>
+ * If you value the privacy of your websites users, then please consider using a
+ * one-way encryption algorithm instead of the Wicket provided ICrypt
+ * implementations. The intention of these encryption facilities is to keep
+ * passwords private when stored in cookies or in the session. The
+ * implementation of the encryption algorithm may change between releases. As
+ * such, this interface and its implementations are not intended and should not
+ * be used as an encryption facility for persistent values.
+ * <p>
+ * As of Wicket 1.2 the methods encrypt and decrypt are deprecated. Consider
+ * changing your persistent encryption strategy to be based on a one-way
+ * encryption such as a SHA1 hash, not depending on Wicket classes.
+ * 
+ * @author Juergen Donnerstag
+ """
+"""
+ * Provides Base64 encoding and decoding as defined by RFC 2045. <p/> This class
+ * is taken from the Apache commons-codec, and adjusted to fit the Wicket
+ * framework's needs, especially external dependencies have been removed.
+ * </p>
+ * <p/> This class implements section <cite>6.8. Base64
+ * Content-Transfer-Encoding</cite> from RFC 2045 <cite>Multipurpose Internet
+ * Mail Extensions (MIME) Part One: Format of Internet Message Bodies</cite> by
+ * Freed and Borenstein.
+ * </p>
+ * 
+ * @author Apache Software Foundation
+ * @since 1.2
+ """
+"""
+ * <p>
+ * High level API for processing file uploads.
+ * </p>
+ * 
+ * <p>
+ * This class handles multiple files per single HTML widget, sent using
+ * <code>multipart/mixed</code> encoding type, as specified by <a
+ * href= http://www.ietf.org/rfc/rfc1867.txt >RFC 1867</a>. Use {@link
+ * #parseRequest(HttpServletRequest)} to acquire a list of {@link
+ * wicket.util.upload.FileItem}s associated with a given HTML widget.
+ * </p>
+ * 
+ * <p>
+ * How the data for individual parts is stored is determined by the factory used
+ * to create them; a given part may be in memory, on disk, or somewhere else.
+ * </p>
+ * 
+ * @author <a href= mailto:Rafal.Krzewski@e-point.pl >Rafal Krzewski</a>
+ * @author <a href= mailto:dlr@collab.net >Daniel Rall</a>
+ * @author <a href= mailto:jvanzyl@apache.org >Jason van Zyl</a>
+ * @author <a href= mailto:jmcnally@collab.net >John McNally</a>
+ * @author <a href= mailto:martinc@apache.org >Martin Cooper</a>
+ * @author Sean C. Sullivan
+ """
+"""
+ * Factory for creating request cycles for a session.
+ * 
+ * @author Jonathan Locke
+ * 
+ * 
+ * TODO 2.0: Deprecate this interface and add newRequstCycle overridable methods
+ * to Application and Session directly. This interface is just bloat since we do
+ * not push it into settings and you still have to override methods to use it. I
+ * dont see the need for extra indirection. Consinder the same for
+ * {@link ISessionFactory}.
+ """
+"""
+	 * THIS METHOD IS NOT PART OF THE WICKET PUBLIC API. DO NOT CALL IT.
+	 * 
+	 * Sets the SliderAppletModel for this slider and uses that information to
+	 * update the Slider Sprocket's normal Wicket component model as well.
+	 * 
+	 * @see wicket.markup.html.applet.Applet#setAppletModel(java.lang.Object)
+	 """
+"""
+ * This component integrates Swing tightly with Wicket by automatically
+ * generating Swing applets on demand. An Applet is initialized on the client
+ * side by the class passed to the Applet constructor. This class must implement
+ * the IApplet interface.
+ * <p>
+ * The JAR file for a given Applet is automatically created by finding the
+ * closure of class files statically referenced by the IApplet class. If any
+ * classes are dynamically loaded by an Applet, they can be added to the JAR by
+ * calling Applet.addClass(Class). The IApplet class will only be
+ * (automatically) instantiated in the client browser's VM by the host applet
+ * container implementation HostApplet. The structure and implementation of
+ * HostApplet, however, is an internal implementation detail to Wicket and might
+ * be changed in the future.
+ * <p>
+ * Once the JAR file for a given Applet subclass has been created, it is reused
+ * for all future instances of that Applet class. The auto-created JAR is
+ * referenced by each instance of the Applet by automatically modifying the
+ * APPLET tag that the Applet is attached to. The result is a fully automatic
+ * applet. Any additional attributes you set on the APPLET tag in your HTML such
+ * as width and height will be left unchanged.
+ * <p>
+ * To add Swing behavior to an Applet, the user's implementation of IApplet
+ * should populate the Container passed to the IApplet.init() method with Swing
+ * components. Those components should edit the model passed into the same
+ * init() method. The model can be pushed back to the server at any time (via an
+ * internally executed form POST over HTTP) by manually calling the
+ * setModel(Object) method on the IAppletServer interface passed to the
+ * IApplet.init() method. Such a manual update is not necessary if the Applet
+ * component is contained in a Form. For Applets nested within Forms, the form
+ * submit will result in an automatic call via JavaScript to the
+ * IAppletServer.setModel() method before the Form itself POSTs. Therefore, the
+ * Applet's model will be updated by the time Form.onSubmit() is called. This
+ * allows users to augment HTML forms with Applet based Swing components in a
+ * modular and reusable fashion.
+ * 
+ * @author Jonathan Locke
+ """
+"""
+	 * THIS METHOD IS NOT PART OF THE WICKET PUBLIC API. DO NOT CALL IT.
+	 * 
+	 * Called when model data is retrieved by the client applet. This method
+	 * writes the model retrieved by getAppletModel() to the client as an
+	 * application/x-wicket-model binary resource. The HostApplet implementation
+	 * on the client then reads the object and updates the sprocket's model
+	 * appropriately.
+	 * 
+	 * @see wicket.IResourceListener#onResourceRequested()
+	 """
+"""
+ * THIS CLASS IS NOT PART OF THE WICKET PUBLIC API. DO NOT ATTEMPT TO USE IT.
+ * 
+ * The applet implementation used to host the user's content via the IApplet
+ * interface. Implements model updating for the IAppletServer interface and
+ * instantiates the user's applet object via the appletClassName property as
+ * determined by the Applet component. Also provides a publicly accessible
+ * method setModel() which takes no parameters and can be called from JavaScript
+ * to push the applet's model back to the server side. This is useful, for
+ * example, when a form is about to be submitted and the models of sprockets
+ * need to be pushed back to the server side ahead of the form submit.
+ * 
+ * @author Jonathan Locke
+ """
+"""
+ * Enables your application to do Spring dependency injection. To use, register
+ * the injector as a {@link wicket.application.IComponentInstantiationListener}
+ * like this:
+ * 
+ * <pre>
+ *      ... (in your application's constructor or init method)
+ *      add(new ComponentInjector());
+ *      ...
+ * </pre>
+ * 
+ * @see wicket.application.IComponentInstantiationListener
+ * @see wicket.Application#addComponentInstantiationListener(wicket.application.IComponentInstantiationListener)
+ * @author Eelco Hillenius
+ """
+"""
+	 * This method is still here for backwards compatibility with 1.1 source
+	 * code. The getXXXSettings() methods are now preferred. This method will be
+	 * removed post 1.2 version.
+	 * 
+	 * @return Application settings
+	 * 
+	 * @see Application#getApplicationSettings()
+	 * @see Application#getDebugSettings()
+	 * @see Application#getExceptionSettings()
+	 * @see Application#getMarkupSettings()
+	 * @see Application#getPageSettings()
+	 * @see Application#getRequestCycleSettings()
+	 * @see Application#getResourceSettings()
+	 * @see Application#getSecuritySettings()
+	 * @see Application#getSessionSettings()
+	 * @deprecated will be made private after 1.2
+	 """
+"""
+ * Encryption and decryption implementations are accessed through this
+ * interface. It provide some simple means to encrypt and decrypt strings, like
+ * passwords etc.. It depends on the implementation itself which algorithms are
+ * used to en-/decrypt the data.
+ * <p>
+ * If you value the privacy of your websites users, then please consider using
+ * a one-way encryption algorithm instead of the Wicket provided ICrypt 
+ * implementations. The intention of these encryption facilities is to keep 
+ * passwords private when stored in cookies or in the session.The implementation 
+ * of the encryption algorithm may change between releases. As such, this 
+ * interface and its implementations are not intended and should not be used as
+ * an encryption facility for persistent values.
+ * <p>
+ * As of Wicket 1.2 the methods encrypt and decrypt are deprecated. Consider
+ * changing your persistent encryption strategy to be based on a one-way 
+ * encryption such as a SHA1 hash, not depending on Wicket classes.
+ *
+ * @author Juergen Donnerstag
+ """
+"""
+	 * 
+	 * Deprecated. Use getApplication().getXXXSettings() instead
+	 * 
+	 * Gets the application pages from the application that this component
+	 * belongs to.
+	 * 
+	 * @return The application pages
+	 * @see IApplicationSettings
+	 * 
+	 * @deprecated
+	 """
+"""
+	 * This method has been deprecated in favor of
+	 * Application.get().getXXXSettings()
+	 * 
+	 * Gets the application settings from the application that this component
+	 * belongs to.
+	 * 
+	 * @return The application settings from the application that this component
+	 *         belongs to
+	 * @see Settings
+	 * @deprecated will be removed after 1.2
+	 """
+"""
+ * This validator has been deprecated in favor of
+ * {@link FormComponent#setRequired(boolean)}
+ * 
+ * Validator that ensures a component has a non-null and non-empty value. If the
+ * component's value is null or empty (a value is considered empty if it just
+ * contains whitespace) when its containing form is submitted then the
+ * errorMessage() method will be called by the framework.
+ * 
+ * @author Jonathan Locke
+ * @deprecated
+ """
+"""
+   * Baseline Performance Numbers. Established with Release 2.0 - Jan 2006
+   * All performance results based on 25000 numIters
+   * 
+   * 1/1/06 - jdk 1.4
+   * #1 19562 #2 2859 #3 2782 #4 8391 #5 4985
+   * 
+   * 
+   * MHT Computer - 8/12/06 - jdk 1.4 
+   * #1 17015 #2 1954 #3 1890 #4 5985 #5 4062
+   * 
+   * 
+   * MHT Computer - 9/26/06 - After 2.3 release - jdk 1.4 
+   * #1 19578 #2 1937 #3 1953 #4 6734 #5 4641
+   * 
+   * 
+   * MHT Computer - 10/1/06 - 2.4 release - jdk 1.4. After removing Reflection caching to resolve general CGLIB/Proxy issues 
+   * #1 29313 #2 2985 #3 3130 #4 9891 #5 7656
+   * 
+   * 
+   * MHT Computer - 12/20/06 - 2.5 release - jdk 1.4. After adding code submitted for fixing recursive mapping infinite loop
+   * problem. Due to maintaining mappedFields variable in MappingProcessor. Is this ok or better way to do it? Not sure
+   * #1 31422 #2 3485 #3 3547 #4 11656 #5 8281
+   * 
+   * 
+   * MHT Computer - 1/26/07 - 2.5 release - jdk 1.4. After making misc perf improvements to improve test case #6
+   * #1 26047 #2 3375 #3 3469 #4 11672 #5 7516 #6 45850
+   * 
+   * 
+   * MHT Computer - 2/1/07 - 2.5 release - jdk 1.4. Just prior to release of 2.5
+   * #1 26266 #2 3094 #3 3203 #4 11297 #5 7453 #6 42312
+   * 
+   * 
+   * MHT Computer - 4/2/07 - 3.2 release - jdk 1.4.
+   * #1 24891 #2 3125 #3 3219 #4 10609 #5 7328 #6 45156
+   * 
+   * 
+   * MHT Computer - 4/7/07 - 3.2.1 release.
+   * jdk1.4 #1 25391 #2 3094 #3 3156 #4 10516 #5 7406 #6 44922
+   * jdk1.5 #1 24016 #2 2797 #3 2890 #4 10031 #5 7125 #6 41797
+   * 
+   * 
+   * MHT Computer - 4/19/07 - 3.2.1 release. Rebaseline test #6. Unused and Uneccessary test data setup logic was
+   * skewing prior results.
+   * jdk1.4 #1 25391 #2 3094 #3 3156 #4 10516 #5 7406 #6 31687
+   * jdk1.5 #1 24016 #2 2797 #3 2890 #4 10031 #5 7125 #6 26265
+   * 
+   * 
+   * MHT Computer - 4/24/07 - 3.3 release
+   * jdk1.4 #1 25485 #2 2907 #3 3219 #4 10375 #5 7312 #6 33703
+   * jdk1.5 #1 23172 #2 2406 #3 2750 #4 9817 #5 6771 #6 26718
+   * 
+   * 
+   * MHT Computer - 5/16/07 - 3.4 release
+   * jdk1.4 #1 27854 #2 2945 #3 3123 #4 11844 #5 8437 #6 19567
+   * jdk1.5 #1 27485 #2 2532 #3 2906 #4 11297 #5 8157 #6 16797
+   * 
+   * 
+   * MHT Computer - 7/06/07 - 4.0 release after map backed property refactor
+   * jdk1.4 #1 27047 #2 3140 #3 3172 #4 12328 #5 8359 #6 33281
+   * jdk1.5 #1 26484 #2 3016 #3 3062 #4 11781 #5 7906 #6 30594
+   * 
+   *
+   * MHT Computer - 7/15/07 - 4.0 release
+   * jdk1.4 #1 24078 #2 2844 #3 2891 #4 11656 #5 7797 #6 36156
+   * jdk1.5 #1 24625 #2 2656 #3 2688 #4 11515 #5 7781 #6 31797
+   * 
+   * MHT Computer - 9/25/07 - 4.1 release
+   * jdk1.4 #1 25766 #2 2938 #3 3000 #4 12078 #5 8156 #6 36031
+   * jdk1.5 #1 24516 #2 2578 #3 2672 #4 11671 #5 7875 #6 32000
+   * 
+   * MHT Computer - 12/15/07 - 4.2 release
+   * jdk1.4 #1 23937 #2 2781 #3 2781 #4 11696 #5 7687 #6 36953
+   * jdk1.5 #1 24157 #2 2594 #3 2640 #4 12438 #5 7984 #6 34531
+   *
+   * (WinXp SP2, P4-3.20GHz, 2GB, JVM 256m) - 12/03/08 - 4.3 release
+   * jdk1.4 #1 29657 #2 3766 #3 3765 #4 17344 #5 10672 #6 40595
+   * jdk1.5 #1 29297 #2 3484 #3 3329 #4 20688 #5 13032 #6 36813
+   * jdk1.6 #1 22579 #2 2812 #3 3297 #4 16563 #5 11735 #6 23219
+   * 
+   * MHT Computer (Macbook Pro, 2.4GHZ Intel Core Duo, JVM 256m) - 12/03/08 - 4.3 release
+   * jdk1.4 #1 15378 #2 1868 #3 1867 #4 8463 #5 5870 #6 23802
+   * jdk1.5 #1 11965 #2 1411 #3 1417 #4 6922 #5 4636 #6 15933
+   * jdk1.6 #1 6672 #2 948 #3 583 #4 1911 #5 1683 #6 3643
+   * 
+   * MHT Computer (Macbook Pro, 2.4GHZ Intel Core Duo, JVM 256m) - 12/26/08 - 4.4 release
+   * jdk1.4 #1 17584 #2 2137 #3 2096 #4 9245 #5 6611 #6 37356
+   * jdk1.5 #1 13465 #2 1539 #3 1548 #4 7425 #5 5144 #6 25975
+   * jdk1.6 #1 7357 #2 1353 #3 631 #4 2239 #5 1915 #6 5834
+   *
+   * MHT Computer (Macbook Pro, 2.4GHZ Intel Core Duo, JVM 256m) - 1/1/09 - 5.0 release Rev:831
+   * jdk1.4 Good Bye
+   * jdk1.5 #1 11056 #2 1406 #3 1404 #4 5621 #5 3957 #6 25996
+   * jdk1.6 #1 6167 #2 1154 #3 598 #4 2442 #5 1706 #6 5460
+   * 
+   * MHT Computer (Macbook Pro, 2.4GHZ Intel Core Duo, JVM 256m) - 2/20/09 - 5.0 release Rev:893
+   * jdk1.4 Good Bye
+   * jdk1.5 #1 11128 #2 1396 #3 1389 #4 5646 #5 3980 #6 27703
+   * jdk1.6 #1 6488 #2 1318 #3 599 #4 2440 #5 1704 #6 6003
+
+   """
+"""
+	 * convert the object representation to a String
+	 * The return String must not be null, it can be empty though
+	 * EXPERIMENTAL API subject to change in the future
+	 """
+"""
+			 * even with Lucene 2.1, use of indexWriter to update is not an option
+			 * We can only delete by term, and the index doesn't have a term that
+			 * uniquely identify the entry.
+			 * But essentially the optimization we are doing is the same Lucene is doing, the only extra cost is the
+			 * double file opening.
+			 """
+"""
+ * Support collection event listening (starts from hibernate core 3.2.6)
+ * FIXME deprecate as soon as we target Core 3.3 and merge back into the superclass
+ *
+ * @author Emmanuel Bernard
+ """
+"""
+ * A Cache efficiently stores temporary objects primarily to improve an application's performance.
+ *
+ * <p>JSecurity doesn't implement a full Cache mechanism itself, since that is outside the core competency of a
+ * Security framework.  Instead, this interface provides an abstraction (wrapper) API on top of an underlying
+ * cache framework's cache instance (e.g. JCache, Ehcache, JCS, OSCache, JBossCache, TerraCotta, Coherence,
+ * GigaSpaces, etc, etc), allowing a JSecurity user to configure any cache mechanism they choose.
+ *
+ * @author Les Hazlewood
+ * @author Jeremy Haile
+ * @since 0.2
+ """
+"""
+ * A CacheManager provides and maintains the lifecycles of {@link Cache Cache} instances.
+ *
+ * <p>JSecurity doesn't implement a full Cache mechanism itself, since that is outside the core competency of a
+ * Security framework.  Instead, this interface provides an abstraction (wrapper) API on top of an underlying
+ * cache framework's main Manager component (e.g. JCache, Ehcache, JCS, OSCache, JBossCache, TerraCotta, Coherence,
+ * GigaSpaces, etc, etc), allowing a JSecurity user to configure any cache mechanism they choose.
+ *
+ * @author Les Hazlewood
+ * @since 0.9
+ """
+"""
+ * <p>
+ * A set of static helper methods for managing JDBC API objects.
+ * </p>
+ *
+ * <p>
+ * Some parts of this class were copied from the Spring Framework and then modified.
+ * They were copied here to prevent Spring dependencies in the JSecurity core API.
+ * </p>
+ *
+ * @author Jeremy Haile
+ * @since 0.2
+ """
+"""
+ * JSecurity support of a {@link SecurityManager} class hierarchy that delegates all
+ * authentication operations to a wrapped {@link Authenticator Authenticator} instance.  That is, this class
+ * implements all the <tt>Authenticator</tt> methods in the {@link SecurityManager SecurityManager}
+ * interface, but in reality, those methods are merely passthrough calls to the underlying 'real'
+ * <tt>Authenticator</tt> instance.
+ *
+ * <p>All other <tt>SecurityManager</tt> (authorization, session, etc) methods are left to be implemented by subclasses.
+ *
+ * <p>In keeping with the other classes in this hierarchy and JSecurity's desire to minimize configuration whenever
+ * possible, suitable default instances for all dependencies will be created upon {@link #init() initialization} if
+ * they have not been provided.
+ *
+ * @author Les Hazlewood
+ * @since 0.9
+ """
+"""
+ * JSecurity support of a {@link SecurityManager} class hierarchy that delegates all
+ * authorization (access control) operations to a wrapped {@link Authorizer Authorizer} instance.  That is,
+ * this class implements all the <tt>Authorizer</tt> methods in the {@link SecurityManager SecurityManager}
+ * interface, but in reality, those methods are merely passthrough calls to the underlying 'real'
+ * <tt>Authorizer</tt> instance.
+ *
+ * <p>All remaining <tt>SecurityManager</tt> methods not covered by this class or its parents (mostly Session support)
+ * are left to be implemented by subclasses.
+ *
+ * <p>In keeping with the other classes in this hierarchy and JSecurity's desire to minimize configuration whenever
+ * possible, suitable default instances for all dependencies will be created upon {@link #init() initialization} if
+ * they have not been provided.
+ *
+ * @author Les Hazlewood
+ * @since 0.9
+ """
+"""
+ * JSecurity support of a {@link SecurityManager} class hierarchy that delegates all
+ * {@link org.jsecurity.session.Session session} operations to a wrapped {@link SessionManager SessionManager}
+ * instance.  That is, this class implements the methods in the
+ * {@link SessionManager SessionManager} interface, but in reality, those methods are merely passthrough calls to
+ * the underlying 'real' <tt>SessionManager</tt> instance.
+ *
+ * <p>The remaining <tt>SecurityManager</tt> methods not implemented by this class or its parents are left to be
+ * implemented by subclasses.
+ *
+ * <p>In keeping with the other classes in this hierarchy and JSecurity's desire to minimize configuration whenever
+ * possible, suitable default instances for all dependencies will be created upon {@link #init() initialization} if
+ * they have not been provided.
+ *
+ * @author Les Hazlewood
+ * @since 0.9
+ """
+"""
+ * <p>The JSecurity framework's default concrete implementation of the {@link SecurityManager} interface,
+ * based around a collection of {@link org.jsecurity.realm.Realm}s.  This implementation delegates its
+ * authentication, authorization, and session operations to wrapped {@link Authenticator}, {@link Authorizer}, and
+ * {@link org.jsecurity.session.mgt.SessionManager SessionManager} instances respectively via superclass
+ * implementation.</p>
+ *
+ * <p>To greatly reduce and simplify configuration, this implementation (and its superclasses) will
+ * create suitable defaults for <em>all</em> of its required dependencies.  Therefore, you only need to override
+ * attributes for custom behavior.  But, note the following:</p>
+ *
+ * <p>Unless you're happy with the default simple {@link org.jsecurity.realm.text.PropertiesRealm properties file}-based realm, which may or
+ * may not be flexible enough for enterprise applications, you might want to specify at least one custom
+ * <tt>Realm</tt> implementation (via {@link #setRealm}) that 'knows' about your application's data/security model.
+ * All other attributes have suitable defaults for most enterprise applications.</p>
+ *
+ * <p><b>RememberMe notice</b>: This class supports the ability to configure a
+ * {@link #setRememberMeManager RememberMeManager}
+ * for <tt>RememberMe</tt> identity services for login/logout, BUT, a default instance <em>will not</em> be created
+ * for this attribute at startup.
+ *
+ * <p>Because RememberMe services are inherently client tier-specific and
+ * therefore aplication-dependent, if you want <tt>RememberMe</tt> services enabled, you will have to specify an
+ * instance yourself before calling {@link #init() init()}.  However if you're reading this JavaDoc with the
+ * expectation of operating in a Web environment, take a look at the
+ * {@link org.jsecurity.web.DefaultWebSecurityManager DefaultWebSecurityManager} implementation, which
+ * <em>does</em> support <tt>RememberMe</tt> services by default at startup.
+ *
+ * <p>Finally, the only absolute requirement for a <tt>DefaultSecurityManager</tt> instance to function properly is
+ * that its {@link #init() init()} method must be called before it is used.  Even this is called automatically if
+ * you use one of the overloaded constructors with one or more arguments.</p>
+ *
+ * @author Les Hazlewood
+ * @author Jeremy Haile
+ * @see org.jsecurity.web.DefaultWebSecurityManager
+ * @since 0.2
+ """
+"""
+ * Convenient superclass for JNDI accessors, providing  jndiTemplate 
+ * and  jndiEnvironment  bean properties.
+ *
+ * <p>Note that this implementation is an almost exact combined copy of the Spring Framework's 'JndiAccessor' and
+ * 'JndiLocatorSupport' classes from their 2.5.4 distribution - we didn't want to re-invent the wheel, but not require
+ * a full dependency on the Spring framework, nor does Spring make available only its JNDI classes in a small jar, or
+ * we would have used that. Since JSecurity is also Apache 2.0 licensed, all regular licenses and conditions and
+ * authors have remained in tact.
+ *
+ * @author Juergen Hoeller
+ * @see #setJndiTemplate
+ * @see #setJndiEnvironment
+ * @see #setResourceRef
+ * @since 1.1
+ """
+"""
+ * Callback interface to be implemented by classes that need to perform an
+ * operation (such as a lookup) in a JNDI context. This callback approach
+ * is valuable in simplifying error handling, which is performed by the
+ * JndiTemplate class. This is a similar to JdbcTemplate's approach.
+ *
+ * <p>Note that there is hardly any need to implement this callback
+ * interface, as JndiTemplate provides all usual JNDI operations via
+ * convenience methods.
+ *
+ * <p>Note that this interface is an exact copy of the Spring Framework's identically named interface from
+ * their 2.5.4 distribution - we didn't want to re-invent the wheel, but not require a full dependency on the
+ * Spring framework, nor does Spring make available only its JNDI classes in a small jar, or we would have used that.
+ * Since JSecurity is also Apache 2.0 licensed, all regular licenses and conditions and authors have remained in tact.
+ *
+ * @author Rod Johnson
+ * @see JndiTemplate
+ * @see org.springframework.jdbc.core.JdbcTemplate
+ """
+"""
+ * Helper class that simplifies JNDI operations. It provides methods to lookup and
+ * bind objects, and allows implementations of the {@link JndiCallback} interface
+ * to perform any operation they like with a JNDI naming context provided.
+ *
+ * <p>Note that this implementation is an almost exact copy of the Spring Framework's identically named class from
+ * their 2.5.4 distribution - we didn't want to re-invent the wheel, but not require a full dependency on the
+ * Spring framework, nor does Spring make available only its JNDI classes in a small jar, or we would have used that.
+ * Since JSecurity is also Apache 2.0 licensed, all regular licenses and conditions and authors have remained in tact.
+ *
+ * @author Rod Johnson
+ * @author Juergen Hoeller
+ * @see JndiCallback
+ * @see #execute
+ """
+"""
+ * A very simple Log instance to record useful information during runtime.
+ *
+ * <p>JSecurity doesn't implement a Logging mechanism itself, since that is outside the core competency of a
+ * Security framework.  Instead, this interface provides an abstraction (wrapper) API on top of an underlying
+ * logging framework's Log instance (e.g. JDK, SLF4J, Commons Logging, company proprietary mechansim, etc), allowing
+ * a JSecurity user to configure any logging mechanism they choose.
+ *
+ * @author Les Hazlewood
+ * @since 0.9
+ """
+"""
+ * A <tt>Realm</tt> is a security component that can access application-specific security entities
+ * such as users, roles, and permissions to determine authentication and authorization operations.
+ *
+ * <p><tt>Realm</tt>s usually have a 1-to-1 correspondance with a datasource such as a relational database,
+ * file sysetem, or other similar resource.  As such, implementations of this interface use datasource-specific APIs to
+ * determine authorization data (roles, permissions, etc), such as JDBC, File IO, Hibernate or JPA, or any other
+ * Data Access API.  They are essentially security-specific
+ * <a href= http://en.wikipedia.org/wiki/Data_Access_Object  target= _blank >DAO</a>s.
+ *
+ * <p>Because most of these datasources usually contain Subject (a.k.a. User) information such as usernames and
+ * passwords, a Realm can act as a pluggable authentication module in a PAM configuration.  This allows a Realm to
+ * perform <i>both</i> authentication and authorization duties for a single datasource, which caters to the large
+ * majority of applications.  If for some reason you don't want your Realm implementation to perform authentication
+ * duties, you should override the {@link #supports(org.jsecurity.authc.AuthenticationToken)} method to always
+ * return <tt>false</tt>.
+ *
+ * <p>Because every application is different, security data such as users and roles can be
+ * represented in any number of ways.  JSecurity tries to maintain a non-intrusive development philosophy whenever
+ * possible - it does not require you to implement or extend any <tt>User</tt>, <tt>Group</tt> or <tt>Role</tt>
+ * interfaces or classes.
+ *
+ * <p>Instead, JSecurity allows applications to implement this interface to access environment-specific datasources
+ * and data model objects.  The implementation can then be plugged in to the application's JSecurity configuration.
+ * This modular technique abstracts away any environment/modeling details and allows JSecurity to be deployed in
+ * practically any application environment.
+ *
+ * <p>Most users will not implement the <tt>Realm</tt> interface directly, but will extend one of the subclasses,
+ * {@link AuthenticatingRealm AuthenticatingRealm} or {@link AuthorizingRealm}, greatly reducing the effort requird
+ * to implement a <tt>Realm</tt> from scratch.</p>
+ *
+ * @author Les Hazlewood
+ * @author Jeremy Haile
+ * @see CachingRealm CachingRealm
+ * @see AuthenticatingRealm AuthenticatingRealm
+ * @see AuthorizingRealm AuthorizingRealm
+ * @see org.jsecurity.authc.pam.ModularRealmAuthenticator ModularRealmAuthenticator
+ * @since 0.1
+ """
+"""
+     * Tomcat 7.0.8 changed their APIs so {@link #hasRole(java.security.Principal, String)} is only valid for 7.0.7 and below.
+     """
+"""
+     * Verify if web container (from Pax Web) is available (package import was resolved).
+     *
+     * @return true if web container is available
+     """
+"""
+     * Constructor.
+     *
+     * @param ctxt         the servlet context of the web application in which Jasper
+     *                     is running
+     * @param redeployMode if true, then the compiler will allow redeploying
+     *                     a tag library from the same jar, at the expense of slowing down the
+     *                     server a bit. Note that this may only work on JDK 1.3.1_01a and later,
+     *                     because of JDK bug 4211817 fixed in this release.
+     *                     If redeployMode is false, a faster but less capable mode will be used.
+     """
+"""
+     * Scans all JARs accessible to the webapp's classloader and its
+     * parent classloaders for TLDs.
+     *
+     * The list of JARs always includes the JARs under WEB-INF/lib, as well as
+     * all shared JARs in the classloader delegation chain of the webapp's
+     * classloader.
+     *
+     * Considering JARs in the classloader delegation chain constitutes a
+     * Tomcat-specific extension to the TLD search
+     * order defined in the JSP spec. It allows tag libraries packaged as JAR
+     * files to be shared by web applications by simply dropping them in a
+     * location that all web applications have access to (e.g.,
+     * <CATALINA_HOME>/common/lib).
+     *
+     * The set of shared JARs to be scanned for TLDs is narrowed down by
+     * the <tt>noTldJars</tt> class variable, which contains the names of JARs
+     * that are known not to contain any TLDs.
+     """
+ commit or roll back changes and release exclusive negotiator lock
+ Third-Party Copy not supported
+ import java.io.IOException;
+ import java.nio.ByteBuffer;
+ import junit.framework.TestCase;
+ import org.jscsi.parser.Constants;
+"""
+ * An implementation of the Maven Wagon interface that is integrated with the Amazon S3 service. URLs that reference the
+ * S3 service should be in the form of <code>s3://bucket.name</code>. As an example <code>s3://maven.kuali.org</code>
+ * puts files into the <code>maven.kuali.org</code> bucket on the S3 service.
+ * <p/>
+ * This implementation uses the <code>username</code> and <code>password</code> portions of the server authentication
+ * metadata for credentials. <code>
+ *
+ * pom.xml
+ * <snapshotRepository>
+ *   <id>kuali.snapshot</id>
+ *   <name>Kuali Snapshot Repository</name>
+ *   <url>s3://maven.kuali.org/snapshot</url>
+ * </snapshotRepository>
+ *
+ * settings.xml
+ * <server>
+ *   <id>kuali.snapshot</id>
+ *   <username>[AWS Access Key ID]</username>
+ *   <password>[AWS Secret Access Key]</password>
+ * </server>
+ *
+ * </code> Kuali Updates -------------<br>
+ * 1) Use username/password instead of passphrase/privatekey for AWS credentials (Maven 3.0 is ignoring passphrase)<br>
+ * 2) Fixed a bug in getBaseDir() if it was passed a one character string<br>
+ * 3) Removed directory creation. The concept of a  directory  inside an AWS bucket is not needed for tools like S3Fox,
+ * Bucket Explorer and https://s3browse.springsource.com/browse/maven.kuali.org/snapshot to correctly display the
+ * contents of the bucket
+ *
+ * @author Ben Hale
+ * @author Jeff Caddel
+ """
+ Catalina.out (by 3rd party code).  Since this is a common
+ auto versioning -> return new version created by checkin
+ ObjectOutputStream -> (GZIP) -> Base64 -> ByteArrayOutputStream
+ GZip -> Base64 -> ByteArray
+ Fallback in case the JAX-WS RI is not available (optional
+ merge and update ACL
+ update ACL
+"""
+     * Updates the ACL of an object.
+     """
+ check updatability
+"""
+ * A metadata parser using the Apache Tika library
+ * @author Jens
+ *
+ """
+ Try to update version2 which should fail (on a versioned document
+"""
+	 * database to import to
+	 """
+ import org.apache.commons.codec.digest.DigestUtils;
+ import org.apache.commons.logging.Log;
+ import org.apache.commons.logging.LogFactory;
+"""
+ * Gloze Tranlator This class translates XML into its own natural RDF ontology using the gloze library. Translation into
+ * the VIVO ontology is completed using the RDF Translator. TODO Stephen: Identify additional parameters required for
+ * translation TODO Stephen: Identify methods to invoke in the gloze library
+ * @author Stephen V. Williams swilliams@ctrip.ufl.edu
+ """
+"""
+	 * The main translation method for the gloze translation class setups up the necessary conditions for using the
+	 * gloze library then executes its translation class
+	 """
+"""
+	 * maybe be deprecated
+	 * copies contents of a jena model into another jena model
+	 * @param in the input model
+	 * @param out the output model
+	 """
+"""
+	 * maybe be deprecated
+	 * dumps the contents of a jena model into a file
+	 * @param jc the jena model
+	 * @param fileName the file to dump into
+	 """
+ import org.vivoweb.ingest.fetch.OAIFetch;
+ import javax.xml.transform.stream.StreamResult;
+ import javax.xml.transform.Source;
+ import javax.xml.transform.stream.StreamSource;
+"""
+ * The <code>source</code> Property per the WebDAV specification [RFC 4918]
+ * 
+ * <pre>
+ *    Name:       source
+ *    Namespace:  DAV:
+ *    Purpose:    The destination of the source link identifies the
+ *    resource that contains the unprocessed source of the link's source.
+ *    Description: The source of the link (src) is typically the URI of the
+ *    output resource on which the link is defined, and there is typically
+ *    only one destination (dst) of the link, which is the URI where the
+ *    unprocessed source of the resource may be accessed.  When more than
+ *    one link destination exists, this specification asserts no policy on
+ *    ordering.
+ * 
+ *    &lt;!ELEMENT source (link)* &gt;
+ *    
+ *    Example - A source Property
+ * 
+ *    &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+ *    &lt;D:prop xmlns:D=&quot;DAV:&quot; xmlns:F=&quot;http://www.foocorp.com/Project/&quot;&gt;
+ *      &lt;D:source&gt;
+ *           &lt;D:link&gt;
+ *                &lt;F:projfiles&gt;Source&lt;/F:projfiles&gt;
+ *                &lt;D:src&gt;http://foo.bar/program&lt;/D:src&gt;
+ *                &lt;D:dst&gt;http://foo.bar/src/main.c&lt;/D:dst&gt;
+ *           &lt;/D:link&gt;
+ *           &lt;D:link&gt;
+ *                &lt;F:projfiles&gt;Library&lt;/F:projfiles&gt;
+ *                &lt;D:src&gt;http://foo.bar/program&lt;/D:src&gt;
+ *                &lt;D:dst&gt;http://foo.bar/src/main.lib&lt;/D:dst&gt;
+ *           &lt;/D:link&gt;
+ *           &lt;D:link&gt;
+ *                &lt;F:projfiles&gt;Makefile&lt;/F:projfiles&gt;
+ *                &lt;D:src&gt;http://foo.bar/program&lt;/D:src&gt;
+ *                &lt;D:dst&gt;http://foo.bar/src/makefile&lt;/D:dst&gt;
+ *           &lt;/D:link&gt;
+ *      &lt;/D:source&gt;
+ *    &lt;/D:prop&gt;
+ * 
+ *    In this example the resource http://foo.bar/program has a source
+ *    property that contains three links.  Each link contains three
+ *    elements, two of which, src and dst, are part of the DAV schema
+ *    defined in this document, and one which is defined by the schema
+ *    http://www.foocorp.com/project/ (Source, Library, and Makefile).  A
+ *    client which only implements the elements in the DAV spec will not
+ *    understand the foocorp elements and will ignore them, thus seeing the
+ *    expected source and destination links.  An enhanced client may know
+ *    about the foocorp elements and be able to present the user with
+ *    additional information about the links.  This example demonstrates
+ *    the power of XML markup, allowing element values to be enhanced
+ *    without breaking older clients.
+ * 
+ * </pre>
+ """
+ fallback to handle BitWorking style templates
+"""
+ * A simple transactional store using Derby db for the transaction logging and id mappings. It
+ * provides snapshot isolation with fail-fast semantics, meaning it will immediately throw a
+ * {@link org.akubraproject.txn.ConcurrentBlobUpdateException ConcurrentBlobUpdateException}
+ * if a transaction tries to modify (insert, delete, or overwrite) a blob which was modified by
+ * another transaction since the start of the first transaction (even if the change by the other
+ * transaction hasn't been committed yet). The assumption is that rollbacks are rare and that it is
+ * better to be notified of a conflict immediately rather than wasting time uploading large amounts
+ * of data that will just have to be deleted again.
+ *
+ * <p>In general a transaction must be considered failed and should be rolled back after any
+ * exception occurred.
+ *
+ * <p>This store must be configured with exactly one underlying blob-store. It supports arbitrary
+ * application-ids and maps them to the underlying blob-store's id's; it currently requires that
+ * the underlying blob-store to be capable of generating ids.
+ *
+ * <p>Snapshot isolation is implemented using a MVCC design as follows. A name-map holds a list of
+ * versioned id mappings which maps application-ids to underlying store-ids; in addition, each
+ * mapping has two flags indicating whether the mapping has been deleted and whether it has been
+ * committed. When a transaction starts it is given a read version number (these increase
+ * monotonically); only committed map entries with a version less than this read version or
+ * uncommitted entries with a version the same as the read version will be read; if there are
+ * multiple such entries for a given app-id, then the one with the highest version is used. If the
+ * transaction makes a change (adding, removing, replacing, etc), a new entry in recorded in the
+ * map with the version set to the read-version and with the committed flag set to false. On commit
+ * the transaction is assigned a write version number (which is higher than any previously issued
+ * read version numbers) and which it then sets on all entries written as part of this transaction;
+ * it also sets the committed flag to true on these entries.
+ *
+ * <p>Old entries (and the underlying blobs) are cleaned out as they become unreferenced, i.e. when
+ * no active transaction could refer to them anymore. In order to speed up the discovery of such
+ * entries, a separate deleted-list is kept into which an entry is made each time an entry in the
+ * main map is marked as deleted and each time a blob is marked as deleted. This list is processed
+ * at the end of every transaction and upon startup (on startup the list is completely cleared as
+ * there are no active transactions).
+ *
+ * <p><em>A note on locking</em>: Derby, even in read-uncommitted mode, likes to acquire exclusive
+ * locks on rows when doing inserts, deletes, and updates. This would be ok, except that it
+ * sometimes attempts to lock rows it won't change. This can lead to deadlocks. The way around this
+ * that I've found is to ensure Derby always uses an index when searching for the rows to update or
+ * delete. This is accomplished by giving the optimizer explicit instructions via the
+ * <var>DERBY-PROPERTIES</var> directive in the queries. Since this directive is only supported in
+ * select statements, all updates and deletes are done via updatable queries (result-sets). This
+ * actually performs about the same as a direct update or delete statement. See also the thread <a
+ * href= http://mail-archives.apache.org/mod_mbox/db-derby-user/200903.mbox/%3c20090330092451.GD26813@innovation.ch%3e >disabling locking</a> (<a
+ * href= http://mail-archives.apache.org/mod_mbox/db-derby-user/200904.mbox/%3c20090401001750.GB5281@innovation.ch%3e >continued</a>),
+ * or at <a href= http://news.gmane.org/find-root.php?message_id=%3c20090330092451.GD26813%40innovation.ch%3e >gmane</a>.
+ * Unfortunately, however, this does not seem to be sufficient: Derby may still lock other rows, as
+ * documented in <a
+ * href= http://db.apache.org/derby/docs/10.4/devguide/rdevconcepts8424.html >Scope of locks</a>
+ * in Derbys's developer guide. When this happens, the wait for the lock will eventually time out
+ * and an exception will be thrown. However, I have not enountered this issue so far. But a related
+ * issue is present in 10.4 and earlier, namely <a
+ * href= https://issues.apache.org/jira/browse/DERBY-2991 >DERBY-2991</a>; testing with 10.5
+ * indicates this issue has been resolved. For these reasons a flag is provided to restrict the
+ * number of concurrent write-transactions to one, and the
+ * {@link #TransactionalStore(URI, BlobStore, String) three-argument-constructor} will set this
+ * single-writer flag to true for derby 10.4 and earlier.
+ *
+ * @author Ronald Tschalr
+ """
+ DEPRECATED - read database info:
+"""
+	 * Will download appropriate IP2COUNTRY database from the internet
+	 * and update local database. Returns immediately (updating is done
+	 * in a background thread).
+	 """
+"""
+ * This thread will download IP2Country database (CSV) files from two different
+ * URL locations, unzip them, and then read and merge them together and create
+ * local IP2Country file from which it will update current IP2Country info
+ * (from this file server will read IP2Country info each time it is restarted).
+ *
+ * Two different IP2Country databases are used because none of the two is
+ * perfect. For example, one does not cover ISPs located in Africa too well,
+ * while the other does, but is smaller in general. Combined though, they mostly
+ * cover all known IP addresses.
+ *
+ * Note that when building IP2Country info, it will, for a short time, allocate
+ * quite large memory blocks (several tens of MB), so when figuring out how much
+ * memory the server needs to run smoothly (using -Xms -Xmx java switches),
+ * count that in as well.
+ *
+ * @author Betalord
+ """
+"""
+	 * Contains a list of deprecated commands, for example:
+	 *  WHITELIST  ->  deprecated feature: white-listing 
+	 """
+ load main R library needed for the DataServer
+ load the netcdf R library
+"""
+     * Points the where migration process is specified in the form of XML file.
+     """
+"""
+     * <p>
+     * Deprecated: Use {@link #transaction(Class)}
+     *
+     * Opens a thread local transaction to the database mapped by the record
+     * class. If an open transaction already exists for the record class, it is
+     * reused. This method is idempotent when called from the same thread.
+     * </p>
+     * <p>
+     * This is corresponds to a call to {@link Database#open(String)} for the
+     * database named by the class mapping of the record. Requires the given
+     * class to be mapped by {@link Jorm}.
+     * </p>
+     *
+     * @param clazz
+     *            the mapped record class.
+     * @return the open transaction.
+     """
+"""
+     * <p>
+     * Deprecated: Use transaction(Class).commit();
+     *
+     * Commits the thread local transaction to the named database mapped by the
+     * record class, if it has been opened.
+     * </p>
+     * <p>
+     * This is corresponds to a call to {@link Database#commit(String)} for the
+     * database named by the class mapping of the record. Requires the given
+     * class to be mapped by {@link Jorm}.
+     * </p>
+     *
+     * @param clazz
+     *            the mapped record class.
+     * @return the committed transaction or null for no active transaction.
+     """
+"""
+     * <p>
+     * Deprecated: Use transaction(Class).close();
+     *
+     * Closes the thread local transaction to the named database mapped by the
+     * record class, if it has been opened. This method is idempotent when
+     * called from the same thread.
+     * </p>
+     * <p>
+     * This is corresponds to a call to {@link Database#close(String)} for the
+     * database named by the class mapping of the record. Requires the given
+     * class to be mapped by {@link Jorm}.
+     * </p>
+     *
+     * @param clazz
+     *            the mapped record class.
+     * @return the closed transaction or null for no active transaction.
+     """
+"""
+     * <p>
+     * Deprecated: Use {@link #transaction()}
+     *
+     * Opens a thread local transaction to the named database mapped by the
+     * record. If an open transaction already exists for the record, it is
+     * reused. This method is idempotent when called from the same thread.
+     * </p>
+     * <p>
+     * This is corresponds to a call to {@link Database#open(String)} for the
+     * database named by the table mapping of the record.
+     * </p>
+     *
+     * @return the open transaction.
+     """
+"""
+     * <p>
+     * Deprecated: Use transaction().commit()
+     *
+     * Commits the thread local transaction to the named database mapped by the
+     * record, if it has been opened.
+     * </p>
+     * <p>
+     * This is corresponds to a call to {@link Database#commit(String)} for the
+     * database named by the table mapping of the record.
+     * </p>
+     * <p>
+     * <strong>Note:</strong> This may cause changes of other records to be
+     * persisted to the mapped database of the record, since all records mapped
+     * to the same named database share transaction in the context of the
+     * current thread.
+     * </p>
+     *
+     * @throws SQLException
+     *             if a database access error occurs.
+     * @return the committed transaction or null for no active transaction.
+     """
+"""
+     * <p>
+     * Deprecated: Use transaction().close()
+     *
+     * Closes the thread local transaction to the named database mapped by the
+     * record, if it has been opened. This method is idempotent when called from
+     * the same thread.
+     * </p>
+     * <p>
+     * This is corresponds to a call to {@link Database#close(String)} for the
+     * database named by the table mapping of the record.
+     * </p>
+     * <p>
+     * <strong>Note:</strong> This may cause changes of other records to be
+     * discarded in the mapped database of the record, since all records mapped
+     * to the same named database share transaction in the context of the
+     * current thread.
+     * </p>
+     *
+     * @return the closed transaction or null for no active transaction.
+     """
+ library is just not present - if discovery is in progress then
+"""
+ * <p>Base class for developing Interceptors with dependencies on Spring managed beans. <b>Not</b>
+ * to be confused with {@link SpringInterceptor} which injects Spring managed beans into
+ * ActionBeans.  For example, you may wish to sublcass this class in order to write an
+ * interceptor with access to Spring managed DAOs or security information.</p>
+ *
+ * <p>Since Interceptors are long-lived objects that are instantiated at application startup
+ * time, and not per-request, the spring wiring takes place in the init() method and happens
+ * only once when the interceptor is first created and initialized.</p>
+ *
+ * @author Tim Fennell
+ * @since Stripes 1.4 
+ """
+"""
+     * Fetches the ServletContext and invokes SpringHelper.injectBeans() to auto-wire any
+     * Spring dependencies prior to being placed into service.
+     *
+     * @param configuration the Stripes Configuration
+     * @throws Exception if there are problems with the Spring configuraiton/wiring
+     """
+ Deprecated method always returns null. 
+ Deprecated method always returns an empty enumeration. 
+ Deprecated method. Use getAttribute() instead. 
+ Returns a String[] of all the attribute names in session. Deprecated. 
+ otherwise deprecated methods in super are warned!
+ Then the action path (THIS IS DEPRECATED)
+ To be replaced after Timeline has java APIs for domains
+""" Do nothing additional, ATS client library should handle throttling"""
+ all source vertices will full dependencies are done
+ no 1-1 dependency. Start all tasks
+ Do nothing. Can potentially pre-warm Tez library components
+ infer all 1-1 via dependencies
+"""
+   * Optional API. This API can be invoked to declare that the
+   * {@link VertexManagerPlugin} is done with its work. After this the system
+   * will not invoke the plugin methods any more. Its invalid for the plugin to
+   * make further invocations of the context APIs after this. This can be used
+   * to stop receiving further {@link VertexState} notifications after the
+   * plugin has made all changes.
+   """
+"""
+   * Set the new parallelism (number of tasks) of this vertex,
+   * Map of source (input) vertices and edge managers to change the event routing
+   * between the source tasks and the new destination tasks and the number of physical inputs for root inputs.
+   * This API can change the parallelism only once. Subsequent attempts will be 
+   * disallowed
+   * @param parallelism New number of tasks in the vertex
+   * @param locationHint the placement policy for tasks.
+   * @param sourceEdgeManagers Edge Managers to be updated
+   * @param rootInputSpecUpdate Updated Root Input specifications, if any.
+   *        If none specified, a default of 1 physical input is used
+   """
+"""
+   * Boolean value.
+   * Specify whether hadoop libraries required to run Tez should be the ones deployed on the cluster.
+   * This is disabled by default - with the expectation being that tez.lib.uris has a complete
+   * tez-deployment which contains the hadoop libraries.
+   """
+"""
+ * This class provides user facing APIs for transferring secrets from
+ * the job client to the tasks.
+ * The secrets can be stored just before submission of jobs and read during
+ * the task execution.  
+ """
+""" Update static mappings (c2i, i2s) of framework groups"""
+"""
+   * API to help pre-allocate containers in session mode. In non-session mode
+   * this is ignored. The pre-allocated containers may be re-used by subsequent 
+   * job DAGs to improve performance. 
+   * The preWarm vertex should be configured and setup exactly
+   * like the other vertices in the job DAGs so that the pre-allocated containers 
+   * may be re-used by the subsequent DAGs to improve performance.
+   * The processor for the preWarmVertex may be used to pre-warm the containers
+   * by pre-loading classes etc. It should be short-running so that pre-warming 
+   * does not block real execution. Users can specify their custom processors or
+   * use the PreWarmProcessor from the runtime library.
+   * The parallelism of the preWarmVertex will determine the number of preWarmed
+   * containers.
+   * Pre-warming is best efforts and among other factors is limited by the free 
+   * resources on the cluster.
+   * @param preWarmVertex
+   * @throws TezException
+   * @throws IOException
+   """
+ Updating resources specified in ResourceCalculatorPlugin
+"""
+   * {@link MRInput} sets some additional parameters like split location when using
+   * the new API. This methods returns the list of additional updates, and
+   * should be used by Processors using the old MapReduce API with {@link MRInput}.
+   * 
+   * @return the additional fields set by {@link MRInput}
+   """
+"""
+   * Get old format splits. Should only be used if the mapred API is being used
+   * @return array of mapred format splits
+   """
+ This could be done via deprecation.
+"""
+ * This class contains helper methods for frameworks which migrate from MapReduce to Tez, and need
+ * to continue to work with existing MapReduce configurations.
+ """
+"""
+   * Update the provided configuration to use the new API (mapreduce) or the old API (mapred) based
+   * on the configured InputFormat, OutputFormat, Partitioner etc. Also ensures that keys not
+   * required by a particular mode are not present. </p>
+   *
+   * This method should be invoked after completely setting up the configuration. </p>
+   *
+   * Defaults to using the new API if relevant keys are not present.
+   *
+   """
+ TODO Deprecation reason does not seem to reflect in the config ?
+"""
+   * {@link MRInput} sets some additional parameters like split location when using the new API.
+   * This methods returns the list of additional updates, and should be used by Processors using the
+   * old MapReduce API with {@link MRInput}.
+   * 
+   * @return the additional fields set by {@link MRInput}
+   """
+"""
+   * Join 2 inputs which has already been sorted. Check the algorithm here <a
+   * href= http://en.wikipedia.org/wiki/Sort-merge_join >Sort-Merge Join</a><br>
+   * It require the keys in both datasets are unique. <br>
+   * Disclaimer: The join code here is written as a tutorial for the APIs and
+   * not for performance.
+   """
+"""
+   * Join 2 inputs using Hash Join algorithm. Check the algorithm here <a
+   * href= http://en.wikipedia.org/wiki/Hash_join >Hash Join</a> <br>
+   * It would output all the occurrences keys in the streamFile which also exist
+   * in the hashFile. This require the keys in hashFile should be unique
+   * <br>Disclaimer: The join code here is written as a tutorial for the APIs and
+   * not for performance.
+   """
+ v1 -> v2
+ vertex meets external start dependency conditions. Save this signal in
+ vertex is inited and all dependencies are ready. Inited vertex means
+ vertex itself is not ready to start. External dependencies have already
+"""
+ * This class should not be implemented by user facing APIs such as InputInitializer
+ """
+ YARN-893 prevents using correct library code
+""" set the required libraries for the inlineEditBox dojo widget
+	 * @param libs the dojo libraries to be included
+	 """
+"""
+ * This component imports Google Maps API.
+ * 
+ * @author Iulian-Corneliu Costan
+ """
+"""
+ * Calendar component based on the Calendar of Yahoo UI Library.
+ * 
+ * @author Eelco Hillenius
+ """
+"""
+ * Slider component based on the Slider of Yahoo UI Library.
+ * 
+ * @author Eelco Hillenius
+ * @author Joshua Lim
+ """
+"""
+ * Index page for the Yahoo UI library (YUI) examples.
+ * 
+ * @author Eelco Hillenius
+ """
+"""
+ * Page that displays the calendar component of the Yahoo UI library.
+ * 
+ * @author Eelco Hillenius
+ """
+"""
+ * Page that displays the calendar component of the Yahoo UI library.
+ * 
+ * @author Joshua Lim
+ * @author Eelco Hillenius
+ """
+"""
+ * Dojo drag container
+ * <p>
+ * 	A drag container is a HTML container used to define a Drag area.
+ *  This area is associated with a pattern. This pattern is used to know 
+ *  if a DojoDragContainer can be drag and drop on a {@link DojoDropContainer} which 
+ *  contains a list of pattern
+ * </p>
+ * <p>
+ * 	<b>Sample</b>
+ *  <pre>
+ * package wicket.contrib.dojo.examples;
+ * 
+ * import wicket.PageParameters;
+ * import wicket.contrib.dojo.dojodnd.DojoDragContainer;
+ * import wicket.contrib.dojo.dojodnd.DojoDropContainer;
+ * import wicket.markup.html.WebPage;
+ * import wicket.markup.html.image.Image;
+ * 
+ * public class DnDShower extends WebPage {
+ * 	
+ * 	public DnDShower(PageParameters parameters){
+ * 		DojoDropContainer dropContainer = new DojoDropContainer( dropContainer ){
+ * 		
+ * 			public void onDrop(DojoDragContainer container, int position) {
+ * 				System.out.println( position =   + position);
+ * 				System.out.println( DojoDragContainer  + container.getId());
+ * 				
+ * 			}
+ * 		
+ * 		};
+ * 		add(dropContainer);
+ * 		
+ * 		DojoDragContainer dragContainer1 = new DojoDragContainer( dragContainer1 );
+ * 		DojoDragContainer dragContainer2 = new DojoDragContainer( dragContainer2 );
+ * 		DojoDragContainer dragContainer3 = new DojoDragContainer( dragContainer3 );
+ * 		add(dragContainer1);
+ * 		add(dragContainer2);
+ * 		add(dragContainer3);
+ * 		
+ * 		
+ * 		DojoDragContainer dragContainer4 = new DojoDragContainer( dragContainer4 );
+ * 		DojoDragContainer dragContainer5 = new DojoDragContainer( dragContainer5 );
+ * 		dropContainer.add(dragContainer4);
+ * 		dropContainer.add(dragContainer5);
+ * 		
+ * 		dragContainer1.add(new Image( pic1 ));
+ * 		dragContainer2.add(new Image( pic2 ));
+ * 		dragContainer3.add(new Image( pic3 ));
+ * 		dragContainer4.add(new Image( pic4 ));
+ * 		dragContainer5.add(new Image( pic5 ));
+ * 	}
+ * }
+ *  </pre>
+ * </p>
+ * @author <a href= http://www.demay-fr.net/blog/index.php/en >Vincent Demay</a>
+ *
+ """
+"""
+ * This component imports Google Maps API.
+ *
+ * @author Iulian-Corneliu Costan
+ """
+ deprecated 
+"""
+ * The Drools implementation of the <code>StatefulRuleSession</code> interface
+ * which is a representation of a stateful rules engine session. A stateful
+ * rules engine session exposes a stateful rule execution API to an underlying
+ * rules engine. The session allows arbitrary objects to be added and removed to
+ * and from the rule session state. Additionally, objects currently part of the
+ * rule session state may be updated. <p/> There are inherently side-effects to
+ * adding objects to the rule session state. The execution of a RuleExecutionSet
+ * can add, remove and update objects in the rule session state. The objects in
+ * the rule session state are therefore dependent on the rules within the
+ * <code>RuleExecutionSet</code> as well as the rule engine vendor's specific
+ * rule engine behavior. <p/> <code>Handle</code> instances are used by the
+ * rule engine vendor to track <code>Object</code>s added to the rule session
+ * state. This allows multiple instances of equivalent <code>Object</code>s
+ * to be added to the session state and identified, even after serialization.
+ * 
+ * @see StatefulRuleSession
+ * 
+ * @author N. Alex Rupp (n_alex <at>codehaus.org)
+ * @author <a href= mailto:thomas.diesler@softcon-itec.de >thomas diesler </a>
+ """
+"""
+ * A class to update DRL source code from version
+ * 3.0 to version 4.0
+ * 
+ * @author etirelli
+ """
+"""
+ * An update tool to migrate source code from Drools 3.0.x to 
+ * Drools 4.0.x
+ * 
+ * @author etirelli
+ """
+ perhaps migrate to using this rather then next/prev methods.
+"""
+     * This will return a list of assets for a given state.
+     * It works through the assets that belong to this package, and 
+     * if they are not in the correct state, walks backwards until it finds one
+     * in the correct state. 
+     * 
+     * If it walks all the way back up the versions looking for the  latest  
+     * version with the appropriate state, and can't find one, 
+     * that asset is not included in the result.
+     * 
+     * This will exclude any items that have the  ignoreState  set
+     * (so for example, retired items, invalid items etc).
+     * 
+     *  @param state The state of assets to retrieve.
+     *  @param ignoreState The statuses to not include in the results (it will look
+     *  at the status of the latest one).
+     """
+"""
+     * Initializes the library to work with a repository either via svn:// (and
+     * svn+ssh://) or via http:// (and https://)
+     """
+"""
+         * initializes the library (it must be done before ever using the
+         * library itself)
+         """
+"""
+     * This will verify that we can load an old BRL change. If this fails,
+     * then backwards compatability is broken.
+     """
+ make an automatic import for the current package
+so don't want to break backwards compat (as XStream is used)
+""" A Java 1.5 grammar for ANTLR v3 derived from the spec
+ *
+ *  This is a very close representation of the spec; the changes
+ *  are comestic (remove left recursion) and also fixes (the spec
+ *  isn't exactly perfect).  I have run this on the 1.4.2 source
+ *  and some nasty looking enums from 1.5, but have not really
+ *  tested for 1.5 compatibility.
+ *
+ *  I built this with: java -Xmx100M org.antlr.Tool java.g 
+ *  and got two errors that are ok (for now):
+ *  java.g:691:9: Decision can match input such as
+ *     '0'..'9'{'E', 'e'}{'+', '-'}'0'..'9'{'D', 'F', 'd', 'f'} 
+ *    using multiple alternatives: 3, 4
+ *  As a result, alternative(s) 4 were disabled for that input
+ *  java.g:734:35: Decision can match input such as  {'$', 'A'..'Z',
+ *    '_', 'a'..'z', '\u00C0'..'\u00D6', '\u00D8'..'\u00F6',
+ *    '\u00F8'..'\u1FFF', '\u3040'..'\u318F', '\u3300'..'\u337F',
+ *    '\u3400'..'\u3D2D', '\u4E00'..'\u9FFF', '\uF900'..'\uFAFF'} 
+ *    using multiple alternatives: 1, 2
+ *  As a result, alternative(s) 2 were disabled for that input
+ *
+ *  You can turn enum on/off as a keyword :)
+ *
+ *  Version 1.0 -- initial release July 5, 2006 (requires 3.0b2 or higher)
+ *
+ *  Primary author: Terence Parr, July 2006
+ *
+ *  Version 1.0.1 -- corrections by Koen Vanderkimpen & Marko van Dooren,
+ *      October 25, 2006;
+ *      fixed normalInterfaceDeclaration: now uses typeParameters instead
+ *          of typeParameter (according to JLS, 3rd edition)
+ *      fixed castExpression: no longer allows expression next to type
+ *          (according to semantics in JLS, in contrast with syntax in JLS)
+ *
+ *  Version 1.0.2 -- Terence Parr, Nov 27, 2006
+ *      java spec I built this from had some bizarre for-loop control.
+ *          Looked weird and so I looked elsewhere...Yep, it's messed up.
+ *          simplified.
+ *
+ *  Version 1.0.3 -- Chris Hogue, Feb 26, 2007
+ *      Factored out an annotationName rule and used it in the annotation rule.
+ *          Not sure why, but typeName wasn't recognizing references to inner
+ *          annotations (e.g. @InterfaceName.InnerAnnotation())
+ *      Factored out the elementValue section of an annotation reference.  Created 
+ *          elementValuePair and elementValuePairs rules, then used them in the 
+ *          annotation rule.  Allows it to recognize annotation references with 
+ *          multiple, comma separated attributes.
+ *      Updated elementValueArrayInitializer so that it allows multiple elements.
+ *          (It was only allowing 0 or 1 element).
+ *      Updated localVariableDeclaration to allow annotations.  Interestingly the JLS
+ *          doesn't appear to indicate this is legal, but it does work as of at least
+ *          JDK 1.5.0_06.
+ *      Moved the Identifier portion of annotationTypeElementRest to annotationMethodRest.
+ *          Because annotationConstantRest already references variableDeclarator which 
+ *          has the Identifier portion in it, the parser would fail on constants in 
+ *          annotation definitions because it expected two identifiers.  
+ *      Added optional trailing ';' to the alternatives in annotationTypeElementRest.
+ *          Wouldn't handle an inner interface that has a trailing ';'.
+ *      Swapped the expression and type rule reference order in castExpression to 
+ *          make it check for genericized casts first.  It was failing to recognize a
+ *          statement like   Class<Byte> TYPE = (Class<Byte>)...;  because it was seeing
+ *          'Class<Byte' in the cast expression as a less than expression, then failing 
+ *          on the '>'.
+ *      Changed createdName to use typeArguments instead of nonWildcardTypeArguments.
+ *          Again, JLS doesn't seem to allow this, but java.lang.Class has an example of
+ *          of this construct.
+ *      Changed the 'this' alternative in primary to allow 'identifierSuffix' rather than
+ *          just 'arguments'.  The case it couldn't handle was a call to an explicit
+ *          generic method invocation (e.g. this.<E>doSomething()).  Using identifierSuffix
+ *          may be overly aggressive--perhaps should create a more constrained thisSuffix rule?
+ * 		
+ *  Version 1.0.4 -- Hiroaki Nakamura, May 3, 2007
+ *
+ *	Fixed formalParameterDecls, localVariableDeclaration, forInit,
+ *	and forVarControl to use variableModifier* not 'final'? (annotation)?
+ """
+"""
+ * A Dialect implementation handles the building and execution of code expressions and blocks for a rule.
+ * This api is considered unstable, and subject to change. Those wishing to implement their own dialects
+ * should look ove the MVEL and Java dialect implementations.
+ *
+ """
+ add static imports for all functions
+"""
+     * Iterates all registered dialects, informing them of an import added to the PackageBuilder
+     * @param importEntry
+     """
+"""
+     * Iterates all registered dialects, informing them of a static imports added to the PackageBuilder
+     * @param staticImportEntry
+     """
+"""
+     * this loads up a precompile binary package. If this fails,
+     * then it means it needs to be updated. It gets the package form the BRL example above.
+     """
+        pkg.updateHeader(  import com.billasurf.Person  );
+now lets import an existing thing
+"""
+   * Called when the machinery of this class itself has a problem, rather than
+   * the invoked third-party method. It writes a simple 500 message back to the
+   * client.
+   """
+"""
+ * This class imports legacy DRL into a structure suitable for storing more
+ * normalised in the repository.
+ *
+ * @author Michael Neale
+ """
+"""
+ *
+ * This servlet deals with import and export of the repository to XML/zip files.
+ *
+ * @author Michael Neale
+ * @author Fernando Meyer
+ """
+"""
+     * This will import DRL from a drl file into a more normalised structure.
+     * If the package does not exist, it will be created.
+     * If it does, it will be  merged  in the sense that any new rules in the drl
+     * will be created as new assets in the repo, everything else will stay as it was
+     * in the repo.
+     """
+"""
+     * In some cases we will want to flush the package dependency stuff for suggestion completions.
+     * The user will still need to reload the asset editor though.
+     """
+"""
+ * This class is fully deprecated. Move along, nothing to see here.
+ * (useful notes are in the comments).
+ * @deprecated
+ * @author Michael Neale
+ *
+ """
+"""
+ * Instantiates a class by making a call to internal JRockit private methods. It is only supposed to
+ * work on JRockit 1.4.2 JVMs prior to release R25.1. From release R25.1 on, JRockit supports
+ * sun.reflect.ReflectionFactory, making this  trick  unnecessary. This instantiator will not call
+ * any constructors.
+ * 
+ * @author Leonardo Mesquita
+ * @see org.drools.objenesis.instantiator.ObjectInstantiator
+ * @see org.drools.objenesis.instantiator.sun.SunReflectionFactoryInstantiator
+ """
+ Now try the className with each of the given imports 
+"""
+ * Implementation of {@link ByteSerializationManager} that uses standard Java
+ * serialization API based on {@link ObjectInputStream}s and
+ * {@link ObjectOutputStream}s
+ * 
+ * @author flbulgarelli
+ """
+"""
+     * Encrypt the document using DOM APIs and run some tests on the encrypted Document.
+     """
+ Initialise the library
+ import org.apache.xml.security.utils.XMLUtils;
+ check dependencies
+ reference dependencies in the XPath Transform - so be on
+"""
+ * This class does the configuration of the library. This includes creating
+ * the mapping of Canonicalization and Transform algorithms. Initialization is
+ * done by calling {@link Init#init} which should be done in any static block
+ * of the files of this library. We ensure that this call is only executed once.
+ """
+"""
+     * Dynamically initialise the library by registering the default algorithms/implementations
+     """
+"""
+     * Initialise the library from a configuration file
+     """
+ read library configuration file 
+"""
+     * Installs a Shared Library.
+     *
+     * @param file
+     * @return
+     """
+"""
+     * Uninstalls a previously installed Shared Library.
+     *
+     * @param name
+     * @return
+     """
+ Check shared library
+"""
+     * Prints information about shared libraries installed.
+     *
+     * @param componentName
+     * @param sharedLibraryName
+     * @return
+     """
+"""
+     * Install a shared library jar.
+     *
+     * @param location URI locating a jar file containing a shared library.
+     * @return the name of the shared library loaded from aSharedLibURI.
+     """
+"""
+     * Uninstall a shared library.
+     *
+     * @param aSharedLibName -
+     *                       the name of the shared library to uninstall.
+     * @return - true iff the uninstall was successful.
+     """
+ Create shared library
+"""
+     * Retrieve a list of components using this shared library
+     *
+     * @return
+     """
+"""
+ * Uninstall a shared library
+ *
+ * @version $Revision$
+ """
+shared Library name to uninstall
+"""
+ * Install a shared library
+ *
+ * @version $Revision$
+ """
+ shared library URI to install
+"""in eclipse, the dependencies.properties may not be avail since it's not"""
+ TODO(kevinclark): Nullable annotation? Requires dependency.
+ TODO(robbyw): Dependencies should be managed elsewhere.
+"""
+     * Convert from deprecated tidy encoding constant to standard java encoding name.
+     """
+"""
+     * Convert a char encoding from the deprecated tidy constant to a standard java encoding name.
+     * @param code encoding code
+     * @return encoding name
+     """
+"""
+ * An implementation of {@link ReadWriteLock} supporting similar
+ * semantics to {@link ReentrantLock}.
+ * <p>This class has the following properties:
+ *
+ * <ul>
+ * <li><b>Acquisition order</b>
+ *
+ * <p>The order of entry to the
+ * lock need not be in arrival order. If readers are
+ * active and a writer enters the lock then no subsequent readers will
+ * be granted the read lock until after that writer has acquired and
+ * released the write lock.
+ *
+ * DEPARTURE FROM java.util.concurrent: this implementation is implemented
+ * as writer-preferring and thus its acquisition order may be different
+ * than in java.util.concurrent.
+ *
+ * <li><b>Reentrancy</b>
+ * <p>This lock allows both readers and writers to reacquire read or
+ * write locks in the style of a {@link ReentrantLock}. Readers are not
+ * allowed until all write locks held by the writing thread have been
+ * released.
+ * <p>Additionally, a writer can acquire the read lock - but not vice-versa.
+ * Among other applications, reentrancy can be useful when
+ * write locks are held during calls or callbacks to methods that
+ * perform reads under read locks.
+ * If a reader tries to acquire the write lock it will never succeed.
+ *
+ * <li><b>Lock downgrading</b>
+ * <p>Reentrancy also allows downgrading from the write lock to a read lock,
+ * by acquiring the write lock, then the read lock and then releasing the
+ * write lock. However, upgrading from a read lock to the write lock is
+ * <b>not</b> possible.
+ *
+ * <li><b>Interruption of lock acquisition</b>
+ * <p>The read lock and write lock both support interruption during lock
+ * acquisition.
+ *
+ * <li><b>{@link Condition} support</b>
+ * <p>The write lock provides a {@link Condition} implementation that
+ * behaves in the same way, with respect to the write lock, as the
+ * {@link Condition} implementation provided by
+ * {@link ReentrantLock#newCondition} does for {@link ReentrantLock}.
+ * This {@link Condition} can, of course, only be used with the write lock.
+ * <p>The read lock does not support a {@link Condition} and
+ * <tt>readLock().newCondition()</tt> throws
+ * <tt>UnsupportedOperationException</tt>.
+ *
+ * <li><b>Instrumentation</b>
+ * <P> This class supports methods to determine whether locks
+ * are held or contended. These methods are designed for monitoring
+ * system state, not for synchronization control.
+ * </ul>
+ *
+ * <p> Serialization of this class behaves in the same way as built-in
+ * locks: a deserialized lock is in the unlocked state, regardless of
+ * its state when serialized.
+ *
+ * <p><b>Sample usages</b>. Here is a code sketch showing how to exploit
+ * reentrancy to perform lock downgrading after updating a cache (exception
+ * handling is elided for simplicity):
+ * <pre>
+ * class CachedData {
+ *   Object data;
+ *   volatile boolean cacheValid;
+ *   ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
+ *
+ *   void processCachedData() {
+ *     rwl.readLock().lock();
+ *     if (!cacheValid) {
+ *        // upgrade lock manually
+ *        rwl.readLock().unlock();   // must unlock first to obtain writelock
+ *        rwl.writeLock().lock();
+ *        if (!cacheValid) { // recheck
+ *          data = ...
+ *          cacheValid = true;
+ *        }
+ *        // downgrade lock
+ *        rwl.readLock().lock();  // reacquire read without giving up write lock
+ *        rwl.writeLock().unlock(); // unlock write, still hold read
+ *     }
+ *
+ *     use(data);
+ *     rwl.readLock().unlock();
+ *   }
+ * }
+ * </pre>
+ *
+ * ReentrantReadWriteLocks can be used to improve concurrency in some
+ * uses of some kinds of Collections. This is typically worthwhile
+ * only when the collections are expected to be large, accessed by
+ * more reader threads than writer threads, and entail operations with
+ * overhead that outweighs synchronization overhead. For example, here
+ * is a class using a TreeMap that is expected to be large and
+ * concurrently accessed.
+ *
+ * <pre>
+ * class RWDictionary {
+ *    private final Map&lt;String, Data&gt;  m = new TreeMap&lt;String, Data&gt;();
+ *    private final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
+ *    private final Lock r = rwl.readLock();
+ *    private final Lock w = rwl.writeLock();
+ *
+ *    public Data get(String key) {
+ *        r.lock(); try { return m.get(key); } finally { r.unlock(); }
+ *    }
+ *    public String[] allKeys() {
+ *        r.lock(); try { return m.keySet().toArray(); } finally { r.unlock(); }
+ *    }
+ *    public Data put(String key, Data value) {
+ *        w.lock(); try { return m.put(key, value); } finally { w.unlock(); }
+ *    }
+ *    public void clear() {
+ *        w.lock(); try { m.clear(); } finally { w.unlock(); }
+ *    }
+ * }
+ * </pre>
+ *
+ *
+ * <h3>Implementation Notes</h3>
+ *
+ * <p>A reentrant write lock intrinsically defines an owner and can
+ * only be released by the thread that acquired it.  In contrast, in
+ * this implementation, the read lock has no concept of ownership, and
+ * there is no requirement that the thread releasing a read lock is
+ * the same as the one that acquired it.  However, this property is
+ * not guaranteed to hold in future implementations of this class.
+ *
+ * <p> This lock supports a maximum of 65536 recursive write locks
+ * and 65536 read locks. Attempts to exceed these limits result in
+ * {@link Error} throws from locking methods.
+ *
+ * @since 1.5
+ * @author Doug Lea
+ *
+ """
+"""
+     * Returns an enumeration over the specified collection.  This provides
+     * interoperability with legacy APIs that require an enumeration
+     * as input.
+     *
+     * @param c the collection for which an enumeration is to be returned.
+     * @return an enumeration over the specified collection.
+     * @see Enumeration
+     """
+"""
+     * Returns an array list containing the elements returned by the
+     * specified enumeration in the order they are returned by the
+     * enumeration.  This method provides interoperability between
+     * legacy APIs that return enumerations and new APIs that require
+     * collections.
+     *
+     * @param e enumeration providing elements for the returned
+     *          array list
+     * @return an array list containing the elements returned
+     *         by the specified enumeration.
+     * @since 1.4
+     * @see Enumeration
+     * @see ArrayList
+     """
+ This library is free software; you can redistribute it and/or
+""" This library is distributed in the hope that it will be useful,"""
+"""
+	 * Inject any dependencies required by this feature to function correctly.
+	 """
+"""
+	 * Get this model's dependencies.
+	 """
+"""
+	 * Add a dependency to this model.
+	 """
+"""
+ * Comparison based on number of dependencies created.
+ * @author Assaf Urieli
+ *
+ """
+ Projective dependency information
+"""
+	 * Add the given dependency to the current configuration.
+	 * @param transition the transition generating this dependency
+	 """
+"""
+ * This class provides a point at which third-party code can
+ * introduce custom wrappers around the WizardPages that are displayed.
+ * To do so, implement the IPageTemplate interface and wrap this
+ * PageTemplate class with your own custom components, delegating the setPage
+ * invocation to the wrapped instance of PageTemplate.
+ * 
+ * @author rcreswick
+ *
+ """
+ import javax.servlet.annotation.WebListener;
+"""
+         * If the webserver is multiplexing the connection,
+         * this library can't deal with it, so repond with
+         * FCGIEndReq message with protocolStatus FCGICantMpxConn
+         """
+"""
+ * Objects of this class are able to validate bean instances (and the associated
+ * object graphs).
+ * <p>
+ * Implementation is thread-safe.
+ * <p>
+ * API class
+ * 
+ * @author Roman Stumm
+ * @author Carlos Vara <br/>
+ """
+"""
+     * Create a new ClassValidator instance.
+     * 
+     * @param factory
+     * @deprecated provided for backward compatibility
+     """
+"""
+     * API to add an error to the validation results.
+     *
+     * @param reason       - Features from {@link org.apache.bval.model.Features.Property}
+     *                       or custom reason of validation error
+     * @param context        - context information (bean, propertyName, value, ...)
+     """
+"""
+     * API to add an error to the validation results.
+     *
+     * @param error       - holding the description of reason and object to describe
+      *                     the validation error
+     * @param context     - null or the context to provide additional information
+     """
+""" Deprecated, but checked for backwards-compatibility."""

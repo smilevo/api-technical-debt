@@ -1,0 +1,323 @@
+Add a testcase that uses mockito instead of easymock+robolectric,migration
+Migrate tests from TestNG to JUnit,migration
+SECOAUTH-177: Switch to Mockito,migration
+migrate from testNG to Junit #5548,migration
+removes use og TestNG in favour of Junit,migration
+fix LOGBACK-765,fix
+s/easymock/mockito/,none
+HADOOP-11613. Remove commons-httpclient dependency from hadoop-azure. Contributed by Masatake Iwasaki.,migration
+CAMEL-2330 applied patch with thanks to Pavel,none
+commons logging -> slf4j 1.1.0,migration
+slf4j log impl,none
+Remove dependency to EasyMock. Rework a single test to Mockito based,migration
+2986747; feature; migration to SLF4J API in favor of commons-logging;,migration
+Switch from EasyMock to Mockito,migration
+Updated UI tests to use junit instead of testNG.,migration
+Switched to JUnit over TestNG,migration
+HSEARCH-197 move to slf4j,migration
+This is a non-functional attempt to update ksoap2-android from commons-httpclient-3.1 to org.apache.httpcomponents-httpclient-4.x.,update
+Update to latest HTTP Components,update
+IN PROGRESS - issue FWK-119: Testes da extensão Servlet,none
+"[PPP-3735] - Use of vulnerable component httpclient-3.0.1.jar, commons-httpclient-3.1 - httpclient-4.0.1.jar, SONATYPE-2007-0004, CVE-2012-6153, CVE-2011-1498, CVE-2014-3577",none
+Fix for https://issues.apache.org/jira/browse/AMQ-3521,fix
+Update project dependencies to be Spring IO compliant,update
+HV-57 move to slf4j,migration
+JSEC-118 - addedd SLF4J and removed commons logging.,migration
+Adds support for proxy including authentication to Importer and ProxyServlet. Adds locale-based attribute parsing to Crawler.,support
+FELIX--5457 : Logger Support. Use Mockito instead of EasyMock,migration
+"Ahhh, I just can't go back to EasyMock after having used Mockito",migration
+httpclient 4.0 upgrade,update
+Removed old Javadocs.,none
+CASC-202,none
+Replace EasyMock with Mockito,migration
+http://code.google.com/p/wiquery/issues/detail?id=132,none
+Upgraded from Commons HTTP Client to Apache HttpComponents' HTTPClient.,migration
+JCR-4065: add WebDAV API based on HttpClient4,support
+Clean tests : use assertj everywhere + Given / When / Then principle + use Mockito instead of EasyMock,migration
+"Latest httpclient, jackson etc; abstract out direct dependency on collectd metrics",update
+Change to JUnit and add beginings of AS7 tests,migration
+[PAXWEB-252] - Use slf4j for easier logging.,support
+Switched from easymock to mockito,migration
+Switch to the Mockito from Easymock,migration
+Added initial unit test code that checked to see if some service,none
+"changed testbench to use httpcomponents (only in tests, anyway)",migration
+switched easymock -> mockito,migration
+migrated tests from easymock to mockito,migration
+CITRUS-32 Use Mockito as unit mocking framework,support
+new HttpClient,none
+JFG-370 httpClient,none
+JFG-902 Replace XML jagger configuration with java builders (#677),migration
+Switched from TestNG to JUnit,migration
+First pass at a new PredictiveModelOptimizer - PredictiveModelOptimizer2,migration
+"Switching tests from easymock to mockito, removing all easymock",migration
+"- Upgraded to junit 4.7, removed testng dependency.",update
+Suite à la discussion à https://github.com/ippontech/IpponRecrute/commit/973a1f6ddec4b163af2610baed728bc7669b50a1,none
+NOJIRA,none
+move to commons httpclient 4,migration
+* replaced @EasyMock@ with @Mockito@,migration
+Refactored code using commons-httpclient 3.1 lib to use http-client 4.1.1 lib (No change in SSL behavior).  All integration tests are passing.,support
+JGroups 3.0 upgrade.,update
+"switched to new httpclient, added HTTP basic authentication for GET and POST",migration
+Switched from commons-httpclient which is no longer in development to apache components httpclient PLFM-628,migration
+MODCLUSTER-287 Demo load servlet needs to be rewritten to not rely on JMX,none
+MX-9 css'ing on the form. replaced easymock with mockito for this part,migration
+replacing remaining easymock junit tests with mockito,migration
+easymock -> mockito,migration
+replacing easymock with mockito to keep one mock framework,migration
+[MOD] switched to sl4j instead of log4j,migration
+Replace TestNG with JUnit + Rules,migration
+"Get rid of TestNG in favor of JUnit, use hamcrest through JUnit",migration
+making jiwigo use httpclient 4; removing singletons; adding conversions methods between jiwigo and commons-gallery; regalandroid now browses piwigo galleries,support
+CAP-113:  Provide support for NTLM authentication in the Exchange adapter,support
+[issue 49] EasyMock -> Mockito,migration
+"Switch to slf4j.  Maven is going this way, and JCL's automatic discovery / classloader issues were being a gigantic PITA",migration
+Update apache commons httpclient library,update
+Moved to Java 7. Dropped Log4j for java.util.logging. Dropped Commons HttpClient for HttpComponents. Various tweaks and cleanup.,migration
+upgrading http unit to 4.0,update
+* Upgraded to apache commons 4.1.2.,update
+refactoring to use http-client 4.1 instead of the old 3.1,migration
+This commit includes following cleanup tasks for coverity tool commands,clean up
+move to a junit based solution for selenium test as it's very convenient to test single test with -Dtest=MyClass#myTest and was not possible or complicated cli with TestNG,migration
+updated to 1.0,update
+tests moved to JUnit4,migration
+EMAILPLT-133 Support EWS Autodiscover service,support
+fixed utf8 issues,support
+WPP-17 Updating the web proxy portlet to use HttpClient 4.0-beta2.  This update includes significant refactoring required by the HttpClient 4 API.  We've also updated the database persistence code to save a list of cookies rather than the lob-encoded serialized State (which no longer exists as of HttpClient 4).  The HttpClient object is now stored in the user session instead of the State object.,update
+Updated code to use httpclient instead of commons-httpclient,migration
+JS-135: Upgrade commons-httpclient from 1.3 to httpcore 1.4 and httpclient 1.4-beta1 (requires Java 5),update
+HttpClient migration big-bang (3.1 -> 4.2),migration
+CMIS-525: replaced Commons Logging with SLF4J,migration
+ZOMG SLF4J Loggging,none
+Updated to Apache HTTPClient 4.1.2,update
+[LOGTOOL-125] Move from testng to junit.,migration
+Lots of cleanup and replacement of EasyMock by Mockito,migration
+Fix cookie-handling to more precisely mirror the flow through the commons-httpclient implementation.,fix
+Converted network calls to use http components 4.x,migration
+SA-50 switch to HttpClient 4.1 for CalDAV integration,migration
+Using httpclient for RedirectionManagementController and LyricsService.,support
+Using httpclient for NetworkService.,support
+update TestNG tests to JUnit 4 and add some assertions on facelets ui library,migration
+[DOXIA-406] Upgrade httpclient,update
+switched over to non-deprecated http client jar.,migration
+upgrade to httpclient 4,update
+Upgraded to HttpClient 4.x.,update
+RF-11358: Upgraded JettyServer to use httpcomponents-client,update
+Updated Perl integration tests. Fixed and updated JUnit extension. Started,update
+Migrating to use junit instead of testng,migration
+swap to Mockito from EasyMock for more readable tests,migration
+Migrate from EasyMock to Mockito.,migration
+Removing all depreaction warnings,clean up
+Do not combine Mockito with Easymock,migration
+Updated httpclient to version 4,update
+#14 - upgrade to httpclient 4.x series,update
+Rewrote with upgraded HTTPClient.,update
+Uses apache httpcomponents instead of commons httpclient (so that it can run on an android device without other dependencies for example).,migration
+Use Magma supportVectorSource(),none
+Converted webdav-buildagent tests from easymock to mockito.,migration
+Introduce Mockito instead of EasyMock.,migration
+"auto migration, geoserver upload for wms",migration
+Refactor to upgrade httpclient dependency,update
+Mockito hinzugefügt und EasyMock in einem ersten Testbeispiel dagegen ausgetauscht,none
+* fixes #220 - replaced Mockito by EasyMock,migration
+Oppgradert rammeverk og byttet ut httpclient med httpcomponents. Oppdatert lisenser.,none
+Change to NZB index provider NZBs.org only,migration
+upgrade to httpclient 4.x,update
+first step to httpclient 4.0,migration
+updated code to use HttpClient 4.0 to support wildcard SSL certs.,support
+added tests for JenkinsHttpClient,none
+All is done,none
+Remove dependency on easymock. Use mockito instead.,migration
+moved from EasyMock to Mockito,migration
+switched to http commons 4 and added read timeout for client (calls to other servers),migration
+"#intFunnel() and #longFunnel() funnels, and a PrimitiveSink --> OutputStream",migration
+General: add tests.,none
+"removed EasyMock, added Mockito, changed all Mocks to use Mockito now",migration
+SONARPLUGINS-841 Fix Bamboo support (need Bamboo 3+).,support
+Webscanner - violation reports and Apache HttpClient 4.1,none
+Migrate to Apache HttpComponents 4,migration
+??????? mockito,none
+Migrated to v4.2 of the apache httpcomponents,migration
+Add GZIP support for HttpClient,support
+testng to junit,none
+Major refactoring. Moving to apache http components 4 and reducing layers.,migration
+Switched to Mockito to improve readability of tests.,migration
+converted to httpclient version 4.x,migration
+"Lots of changes - OpenId, Import/Export of master data, build improvements...",none
+upgraded to httpclient 4,update
+FXOLAT-358: change the password in the Unit Tests of the REST API too,none
+"SEDBFO-25 bring in Mockito, remove of EasyMock",migration
+Replaced Easymock with Mockito,migration
+Initiate migration from EasyMock to Mockito for BotManagerTest,migration
+Get rid of TestNG,migration
+"junit tests left, testng removed",none
+Swapping from using EasyMock to using Mockito,migration
+updating version,update
+changed to Junit for tests.  Removed TestNG.,migration
+massive refactoring,refactoring
+Change tests to use Mockito (instead of EasyMock).,migration
+Switched from TestNG to jUnit 4.11,migration
+JUnit conversion: Fixed remaining imports to testng,fix
+Migrate unit tests to Mockito 2.x,migration
+apache-cxf-sample7-jaxrs https,none
+?????????,none
+bzz,none
+minor tweaks,none
+Unit Testing Layer Service,none
+"QA - conversion: EasyMock -> Mockito, Junit3 -> 4",migration
+use Mockito instead of Easymock,migration
+QA converted (finally) to JUnit-4 style & Mockito instead of EasyMock,migration
+Solver skeleton,none
+testng-496 org.testng.junit.JUnit4TestRunner handles testAssumptionFailure as a failure but it should be ignored,none
+Reverting to junit3 tests for testng asserts for now,backward
+Upgraded URLStreamer to HttpClient 4.x.  Bug fix with ConfigurationUtil.,migration
+updated perftest to use amazon sdk and also stop using httpnio,update
+Replace Gson library with Jackson,migration
+Replace Gson with Jackson,migration
+Use slf4j instead of log4j,migration
+fop/fonts used commons-logging; now swapped to slf4j.,migration
+HDFS-11992. Replace commons-logging APIs with slf4j in FsDatasetImpl. Contributed by hu xiaodong.,migration
+HADOOP-14638. Replace commons-logging APIs with slf4j in StreamPumper.,migration
+Replacing commons-logging and log4j direct calls with slf4j equivalents.,migration
+CAMEL-11574 - Switch lumberjack from Gson to Jackson in order to support long JSon values,migration
+Embellishments to stat publishing:,none
+switching to jackson,migration
+Made changes to replace signpost oauth implementation with scribe-java,migration
+upgrade from google-collections to guava,migration
+changed logger to slf4j,migration
+This commit switches the logging to slf4j and logback throughout the entire project and all its sub projects and modules.,migration
+"Further addresses FCREPO-630 by replacing all source code uses of log4j, commons-logging, and java.util.logging APIs with SLF4J api, and moving log4j-over-slf4j, cl-over-slf4j, and logback to runtime (not compile-time) dependencies.",migration
+JCR-520 replace commons-logging by SLF4J,migration
+All logging is now org.slf4j. We had a mix of org.slf4j and apache commons-logging. Added error logging to all view which throw errors.,none
+upgrading from google collections to guava r09,migration
+"Fixed build issues with Zachs Gurav patch. This has not been spun up, and there may be more fixes to come.",fix
+Migrated from gson to jackson library (#459),migration
+Remove references to commons-logging and replace with slf4j,migration
+JAVASERVERFACES-2283,none
+Replace commons-logging by slf4j,migration
+s/commons-logging/slf4j-api/g,none
+convert gson to jackson2 for JSON handling,migration
+"Replace google-collections with guava, and build as a static library.",migration
+Replacing AeroGearLogger with slf4j.,migration
+Switch to slf4j-api.,migration
+Replace JetS3t with the AWS SDK,migration
+Use Gson lib in applet and fix its build due to cif module,migration
+switch from Grizzly to Jetty,migration
+Removed Log4J dependency and switched to SLF4J,migration
+- update dependencies and use slf4j instead of commons-logging,migration
+applying hibernate 4 interface,none
+Consolidate Logging,migration
+Convert TPF from Gson to Jackson,migration
+Remove commons-logging. Logging is now using slf4j.,migration
+replace JSON library from org.json to com.google.code.gson.,migration
+Use SLF4J instead of JCL for logging facade.,migration
+Migrated to slf4j,migration
+switched to google guava.,migration
+"switched to slf4j, using logback for testing, and using enforcer plugin to ban commons-logging and log4j lest they creep in as transitive dependencies",migration
+replace _Apache Commons Logging_ and _log4j_ with _SLF4J_ and _logback_,migration
+switching from json-simple to gson [oh the pain :( ],migration
+"- big cleanup: removed ehcache, removed atlasresultset, removed h2 dependency",none
+Use EFO 1.2 (atlas-index-api 1.2),none
+"Generate schema plugin updated, sl4j instead of commons-logging placed",migration
+Upgraded version of sisu-guice.,update
+Switched to SLF4J for logging,migration
+Removed commons-logging and replaced it by slf4j in core and tools. Made the,migration
+Switching loggers from commons-logging to slf4j.,migration
+"Replaced commons-logging by slf4j (Simple Logging Facade for Java, www.slf4j.org). This resolves STS-403 and STS-414, but I do not have the rights in JIRA..if someone who does could change the status of those issues, I would appreciate it. Thanks.",migration
+"After some discussion, it has been decided not to switch to SLF4J. Instead, commons-logging has been upgraded to version 1.1.1. Furthermore, Log4J was upgraded to version 1.2.15.",migration
+TEZ-2176. Move all logging to slf4j. Contributed by Vasanth kumar RJ.,migration
+implement tinymce exact mode,none
+"JBRULES-1233 Solver should use slf4j, like jbrms + optimize imports",migration
+CMSPLT-57 Support import export of attachments,support
+Common injector for WebSocket and Netty server,none
+Use GSON instead of bundling JSON.,migration
+o Migrated from Plexus to Sisu for parity with Maven 3.0-beta-3+,migration
+Switch to jackson 2 and remove GSon,migration
+Started bennu 2,none
+Rework Jeppetto's exception model.,none
+modify log,none
+update,update
+Updating poms and applying some changes after the check refactor in staccato-commons-collections,update
+ANY23-276 : Convert from Sesame to RDF4J,migration
+reemplazo el viejo commons-logging  con slf4j,none
+imagesearch??,none
+[SANTUARIO-354] - Switch to use SLF4J for logging,migration
+[SMX4NMR-250] Use SLF4J logger in place of commons-logging.,migration
+Completely dropped Gson for Jackson (fix for CRAFTERCMS-924).,migration
+Added Jetty testing to the POM and added log4j config.,migration
+Update dependencies,update
+[SM-2048] Use SLF4J in place of commons-logging.,migration
+Switch to slf4j as our logging facade (from commons-logging),migration
+cambio de versiones:,none
+remplazo llamadas a commons-logging por slf4j-api,none
+#29 Migrate to gson in PageDictionary,migration
+[+JL] Upgrade google.collections to google.guava,migration
+[SM-2048] Use slf4j as default logging system in place of commons-logging.,migration
+"add back main-class to manifest, remove commons-logging test dependency in favor of slf4j",migration
+Got rid of:,none
+Fallback to log4j - OpenFire is using it :(,backward
+Replaced commons-logging with slf4j,migration
+Use slf4j-api instead of commons-logging,migration
+Changed logging from log4j to slf4j/logback,migration
+PLUTO-553: commons-logging unsuited for cross-context webapplication invocation usage - migrating to slf4j,migration
+use gson,migration
+Switching the tool over to use SLF4J instead of commons-logging.,migration
+Logging,none
+"updating to v3.2. replacing commons-logging with SLF4J to help with OSGi compliance per SpringSource recommendation. Added support for interval-based scheduling via Quartz. Replacing log4j.properties with log4j.xml. Refactored task error handling, logging into BaseTask. Implementing perf4j usage to support getting stats on tasks via BaseTask. Adding tests.",migration
+new command and alarming mechanism - draft,none
+Upgrade to Spring Framework 3.1,update
+Use slf4j instead of commons-logging,migration
+unified logging with slf4j,migration
+Convert logging to slf4j,migration
+Switch json library.,migration
+Replace CommonsLogging with SLF4J,migration
+Spring framework????????,none
+Switched logging API from commons-logging to slf4j,migration
+moving logging from slf4j+logback to log4j2,migration
+Change from async http client to apache http client.,migration
+-changed from slf4j to log4j,migration
+custom component for client type - not fully operational.,none
+Switched from commons logging / log4j to slf4j,migration
+KI-72: swapped out commons-logging for slf4j,migration
+????.,none
+Move to slf4j with SPI-based Configurator,migration
+????????? ? JSON ? ????????? ConnectionHandler,none
+Fixed a number of bundle bugs,fix
+Move from sisu-guice to guice 4.1 and fix related changes,migration
+Updates to latest Brave,update
+slf4j + log4j done,none
+JEN-197,none
+- use slf4j instead of commons-logging.,migration
+Switching from Gson lib to Jackson lib,migration
+Switched from Commons Logging to SLF4J,migration
+migration from commons-logging to slf4j,migration
+"Support for line and block comments in json, updating gson and jackson libs for benchmark",update
+Some refactory for alaskel,refactoring
+Remove gson dependency,migration
+Fixes #19 by migrate commons-logging to slf4j and using Maven for,migration
+added support for Rucio.,support
+switched from Gson to Jackson (since it is faster and also default of other dependecies),migration
+Replace commons-logging with slf4j.,migration
+main logging switched from apache-commons-logging to slf4j,migration
+Project upgraded,none
+add slf4j log some fetures,update
+"change from simplejson to gjson (so we are consistent with CLAVIN code), better error handling, more constants",migration
+improve - use slf4j replace commons-logging as default log api,migration
+"added Apache Solr, changed logging (halfway through)",migration
+Changing gson to jackson because jackson is declare in the whitelist,migration
+Replaced log4j with slf4j + logback,migration
+Update tracker library tests out,update
+Serialization stuff works now using Jackson and JsonIgnore annotations,fix
+The license is now Apache License 2.0,none
+added support for log4j,support
+Changing Log interface lib from commons-logging to slf4j,migration
+add double array trie,none
+Switch to com.google.code.gson JSON parser.,migration
+Commit of v6.0,none
+replacing gson w/ jackson ObjectMapper for i18n servlet. attempt at guava support for CQ5.6.x & AEM6,migration
+Template mis à jour :,none
+commons log -> slf4j,migration
+Convert to using gson for json parsing,migration
+Changed logging to SLF4j with logback classic,migration
+updates,update
+switched to sidu-guice,migration
+"use guava, have a to and from xml method",none

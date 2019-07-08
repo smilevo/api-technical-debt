@@ -1,200 +1,184 @@
-<html>
-    <head>
-        <title>Commits classification with Active Learning</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-     </head>
-    <body>
-        <header>
-            <div class="navbar navbar-dark bg-primary shadow-sm">
-              <div class="container d-flex justify-content-between">
-                <a href="#" class="navbar-brand d-flex align-items-center">
-                  <strong>Github Commits classsification With AL</strong>
-                </a>
-              </div>
-            </div>
-          </header>
-      
-          <main role="main">
-      
-            <section class="jumbotron text-center mb-0">
-              <div class="container">
-                <h1 class="jumbotron-heading">Documentation</h1>
-                <p class="lead text-muted">On the classification of software change messages using multi-label active learning.</p>
-              </div>
-            </section>
-            <section class="border-top p-5"> 
-                <div class="container">
-                    <h3>List of adopted projects that were randomly selected from Github:</h3>
-                    <table class="table">
-                        <thead class="thead-dark">
-                          <tr>
-                            <th scope="col">Applications</th>
-                            <th scope="col">Source</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">geocaching</th>
-                            <td><a href="https://github.com/cgeo/cgeo">https://github.com/cgeo/cgeo</a></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">anuto</th>
-                            <td><a href="https://github.com/reloZid/android-anuto">https://github.com/reloZid/android-anuto</a></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">adam.aslfms</th>
-                            <td><a href="https://github.com/tgwizard/sls.git">https://github.com/tgwizard/sls.git</a></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">amaze.filemanager</th>
-                            <td><a href="https://github.com/arpitkh96/AmazeFileManager">https://github.com/arpitkh96/AmazeFileManager</a></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">android.reddit</th>
-                            <td><a href="https://github.com/talklittle/reddit-is-fun.git">https://github.com/talklittle/reddit-is-fun.git</a></td>
-                          </tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
 
-                          <tr>
-                            <th scope="row">android.keepass</th>
-                            <td><a href="https://github.com/bpellin/keepassdroid.git">https://github.com/bpellin/keepassdroid.git</a></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">faircode.netguard</th>
-                            <td><a href="https://github.com/M66B/NetGuard">https://github.com/M66B/NetGuard</a></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">fastaccess.github</th>
-                            <td><a href="https://github.com/k0shk0sh/FastHub">https://github.com/k0shk0sh/FastHub</a></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">ccrama.redditslide</th>
-                            <td><a href="https://github.com/ccrama/Slide">https://github.com/ccrama/Slide</a></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">mozilla.mozstumbler</th>
-                            <td><a href="https://github.com/mozilla/MozStumbler.git">https://github.com/mozilla/MozStumbler.git</a></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">org.videolan.vlc</th>
-                            <td><a href="https://github.com/mozilla/MozStumbler.git">https://code.videolan.org/videolan/vlc-android.git</a></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                </div>
-            </section>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 800px}
 
-            <section class="p-5 border-top">
-                    <div class="container">
-                    <h3>Example of categorized commits taken from our dataset:</h3>
-                        <table class="table table-dark">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th scope="col">App (Pakage)</th>
-                                <th scope="col">Message</th>
-                                <th scope="col">Corrective</th>
-                                <th scope="col">Perfective</th>
-                                <th scope="col">Adaptive</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">com.amaze.filemanager</th>
-                                <td class="bg-light" style="color:black; font-weight:bold;">
-                                    <p>Removed refresh option and some ui fixesdark theme fixes for processviewer</p>
-                                </td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-danger">0</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">com.amaze.filemanager</th>
-                                <td class="bg-light" style="color:black; font-weight:bold;">
-                                    <p>Minor bug fixes and performance improvements</p>
-                                </td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-danger">0</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">me.ccrama.redditslide</th>
-                                <td class="bg-light" style="color:black; font-weight:bold;">
-                                    <p>Regex improvements  Fixed exceeding height issues removed initial bitmap scaling</p>
-                                </td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-danger">0</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">com.fastaccess.github</th>
-                                <td class="bg-light" style="color:black; font-weight:bold;">
-                                    <p>changed font to roboto  fixed a bug where the url might be null in viewing code  removed the drawer header elevation  removed the alerter lib and used Toasty instead.</p>
-                                </td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-danger">0</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">com.amaze.filemanager</th>
-                                <td class="bg-light" style="color:black; font-weight:bold;">
-                                    <p>Implemented icon colors and many more1. Fixed recents header colouration for all activities2. Fixed top margins for bookmark manager and app manager3. Fixed dark theme in preferences due to recent changes</p>
-                                </td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-danger">0</td>
-                                <td class="bg-success">1</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">me.ccrama.redditslide</th>
-                                <td class="bg-light" style="color:black; font-weight:bold;">
-                                    <p>Small crash fix  Update version number</p>
-                                </td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-danger">0</td>
-                                <td class="bg-success">1</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">ch.logixisland.anuto</th>
-                                <td class="bg-light" style="color:black; font-weight:bold;">
-                                    <p>Merge pull request #85 from larjona/patch-1Update Spanish translation  fixing some accents tildes</p>
-                                </td>
-                                <td class="bg-danger">0</td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-success">1</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">com.adam.aslfms</th>
-                                <td class="bg-light" style="color:black; font-weight:bold;">
-                                    <p>+ strings have been split into separate files+ Supported apps -> Enabled apps  with more explanation+ Reworked how the Options screen works  less code duplication+ Added options for submission on specific networks</p>
-                                </td>
-                                <td class="bg-danger">0</td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-success">1</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">org.mozilla.mozstumbler</th>
-                                <td class="bg-light" style="color:black; font-weight:bold;">
-                                    <p>updated to use v7 ActionBarDrawerToggleDeleted unused ic_drawer icons that were needed for v4 ActionBarDrawerToggle</p>
-                                </td>
-                                <td class="bg-danger">0</td>
-                                <td class="bg-success">1</td>
-                                <td class="bg-success">1</td>
-                              </tr>
-                            </tbody>
-                        </table>
-                    </div>
-            </section>
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+<div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li class="active"><a href="Experiment.html">Experiment</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+
+    <div class="col-sm-2 sidenav">
+     <h3>Collected Data</h3>
+     
+     
+     <div class="well">
+        <p></p>
+      <p><a href="https://drive.google.com/open?id=1Ph_mjaCb1tHk1fYhmKlyKl-DQAU1idiK">All comments before migration commits</a></p>
+    </div>
+    
+     
+     
+     <div class="well">
+        <p></p>
+      <p><a href="./CSVFiles/API-debts.csv">Comments Containing API-debts</a></p>
+    </div>
+    
+  
+    
+    <div class="well">
+        <p></p>
+      <p><a href="./CSVFiles/Labled_migrate.csv">Commits messages Labeled "Migration, Update, ..."</a></p>
+    </div>
+
+ 	<div class="well">
+        <p></p>
+      <p><a href="./CSVFiles/AllCommitsMessages.csv">All Commits messages not Labeled"</a></p>
+    </div>
+
+    </div>
+
+
+    <div class="col-sm-8 text-left">
+      <h1>The Impact of API Evolution on Self-Admitted Technical Debt:An Exploratory Study</h1>
+      <hr>
+      <p>Self-AdmittedTechnical Debt (SATD) occurs when developers intentionally chooseto take short-cuts, 
+      non-optimal solutions (e.g., temporary and quickfixes or rush code development) that negatively contribute to
+       long-term source code quality in order to achieve short-term goals suchas product deadline. 
+       Several studies have successfully identifiedSATD through the source-comments, classified them into five types
+       (design debt, defect debt, documentation debt, requirement debt,and test debt) based on how they 
+       negatively affect different partsof the source-code and proposed a tool that automatically detectsSATD 
+       using the source- comments as input. However, few papersdeeply investigate the types of SATD and their
+        effects on softwareprojects. In this paper, we introduce a new type of SATD - we callit API debt - that 
+        is related to core API or third-party libraries. Inaddition, we quantify the amount of API-debt that are
+    	found in ourselected data-sets, why it is introduced and finally measuring theamount of API-debt removal.</p><br>
+
+
+      <p>More specifically, the research questions that we investigated are:</p>
       
-          </main>
-      
-          <footer class="text-muted">
-            <div class="container">
-              <p class="float-right">
-                <a href="#">Back to top</a>
-              </p>
-              <p>Author: Cyrine Gharbi</p>
-            </div>
-          </footer>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    </body>
+      <p><strong>RQ1. To what extent self-admitted API-debt exists in the selected software projects?</strong></p>
+      <p>93.3% of software projects on Github are built using core and third-part libraries
+      . We believe that improper solutions, short-cuts or hacks can be involved using APIs and
+       third-part libraries. In this research question, we want to investigate a new type of 
+       self-admitted technical debt that is related to API issues - we call it API debt.</p>
+       
+       
+      <p><strong>RQ2. Why is  self-admitted API-debt introduced to the source-code?</strong></p>
+      <p>To achieve the goal of understating why developers bring API-debt to software projects,
+       we used the migration commit messages. The migration commit messages are textual text written by
+        the developers to resolve API-related issues such as ""</p>
+
+
+      <p><strong>RRQ3. To what extent self-admitted API-debt instances are being removed?</strong></p>
+      <p>Since we introduced a new type of self-admitted technical debt - API debt, 
+      we want to investigate how much API-debt comments are actually removed after the developers push the migration commits.</p>
+
+
+ <!--    
+</br>
+<p>If you are interested to learn more about the process we followed, please refer to our paper.</p>
+-->
+
+<hr>
+<!--
+<div style="text-align: center" >
+
+<img src="./pattern.PNG" height="1000" width="1000"></div>
+-->
+<!--
+<div style="text-align: center" >
+
+<?php include_once "graph.php" ?>
+
+</div>
+<div style="text-align: center" >
+
+<div id="SecondHTML">
+</div>
+</div>
+<script>
+$(function()
+{
+$("#SecondHTML").load("graph.html");
+});
+
+</script>
+<div style="text-align: center" >
+
+<hr>
+<div w3-include-html="graph.html"></div>
+<script>
+w3IncludeHTML();
+</script>
+</div>
+-->
+
+    </div>
+    <div class="col-sm-2 sidenav">
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p></p>
+</footer>
+
+</body>
 </html>
